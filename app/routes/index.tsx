@@ -1,20 +1,9 @@
-
 import type { LinksFunction } from "@remix-run/node";
-import { techComponent } from "../components/tech.component";
-import { TECHNOLOGIES_KNOWN } from "../components/tech-desc";
-
-
-export const links: LinksFunction = () => {
-  return [
-    //{ rel: "preload", href: heroImageUrl },
-    ...TECHNOLOGIES_KNOWN.map(({ src }) => ({
-      rel: "preload",
-      href: src,
-    })),
-  ];
-};
+import { useNavigate } from "@remix-run/react";
+import { Routes } from "~/constants/routes";
 
 export default function Index() {
+  const nav = useNavigate();
   return (
     <main className="min-h-screen">
       {/* Hero section */}
@@ -24,20 +13,27 @@ export default function Index() {
           <h1 className="text-center text-5xl font-extrabold uppercase tracking-tight text-purple-500 text-purple-700 drop-shadow-md">
             Sunnee Chevalier's Website
           </h1>
-          <p className="mx-auto mt-6 max-w-xs text-center text-xl text-white sm:max-w-2xl">
-            This is a minimal Remix stack to serve as a starting point for demos
-            and debugging.
-          </p>
-          <p className="mx-auto mt-16 text-center ">
-            <h2 className="mx-auto mt-8 text-center text-xl sm:text-2xl">
-              My tech stack
-            </h2>
-            <ul className="mx-auto mt-4 flex flex-row flex-wrap items-center justify-center gap-4 sm:flex-row w-2/4">
-              {TECHNOLOGIES_KNOWN.map((tech) => (
-                techComponent(tech)
-              ))}
-            </ul>
-          </p>
+          <section className="mx-auto mt-16 text-center ">
+            <div className="mx-auto max-w-sm rounded overflow-hidden shadow-lg">
+              <div className="grid grid-cols-3 gap-2 px-4 py-4">
+                <a href={Routes.project} className="flex justify-center items-center content-center row-span-2 col-span-1 text-center bg-blue-500 rounded hover:bg-blue-700 text-white font-bold px-8 py-8 whitespace-nowrap">
+                  <span>
+                    My projects
+                  </span>
+                </a>
+                <a href={Routes.techstack} className="flex justify-center items-center content-center col-span-2 text-center bg-blue-500 rounded  hover:bg-blue-700 text-white font-bold px-8 py-8 whitespace-nowrap">
+                  <span>
+                    Tech stack 
+                  </span>
+                </a>
+                <a href={Routes.about} className="flex justify-center items-center content-center col-span-2 bg-transparent hover:bg-blue-500 text-blue-700 font-bold hover:text-white py-8 border border-blue-500 hover:border-transparent rounded whitespace-nowrap">
+                  <span>
+                    About Me
+                  </span>
+                </a>
+              </div>
+            </div>
+          </section>
         </div>
       </section>
     </main>

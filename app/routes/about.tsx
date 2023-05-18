@@ -4,6 +4,7 @@ import tailwindLogoUrl from "../assets/tailwind.svg";
 import typescriptURL from "../assets/typescript.svg";
 import cloudflareLogoUrl from "../assets/cloudflare.svg";
 import type { LibrariesUsed } from "~/types/libraries";
+import SideNavPage from "~/components/side-nav";
 const LIBRARIES: LibrariesUsed[] = [
   {
     src: tailwindLogoUrl,
@@ -29,8 +30,8 @@ const LIBRARIES: LibrariesUsed[] = [
 
 export default function About() {
   return (
-  <main>
-    <section className="m-4 md:m-8">
+    SideNavPage(
+      <div className="m-4 md:m-8">
       <h2 className="mx-auto mt-8 text-center text-xl sm:text-2xl">
         This website is built using these
       </h2>
@@ -47,9 +48,8 @@ export default function About() {
           </li>
         ))}
       </ul>
-    </section>
-  </main>
-  );
+    </div>
+    ));
 }
 
 export const links: LinksFunction = () => {
@@ -58,6 +58,7 @@ export const links: LinksFunction = () => {
     ...LIBRARIES.map(({ src }) => ({
       rel: "preload",
       href: src,
+      as: "image",
     })),
   ];
 };

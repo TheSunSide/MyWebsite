@@ -1,5 +1,5 @@
 {
-  "name": "my-remix-app-9366",
+  "name": "Sunnee's App",
   "private": true,
   "sideEffects": false,
   "scripts": {
@@ -25,6 +25,8 @@
     "@remix-run/react": "^1.16.0",
     "@remix-run/serve": "^1.16.0",
     "@remix-run/server-runtime": "^1.16.0",
+    "flowbite": "^1.6.5",
+    "flowbite-react": "^0.4.4",
     "isbot": "^3.6.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

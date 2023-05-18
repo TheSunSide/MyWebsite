@@ -148,13 +148,6 @@ export const TECHNOLOGIES_KNOWN: TechnologiesUsed[] = [
     keypoints: [],
   },
   {
-    src: gcloudURL,
-    alt: "Google Cloud",
-    href: "https://cloud.google.com/",
-    knownLevel: 2,
-    keypoints: [],
-  },
-  {
     src: linuxURL,
     alt: "Linux",
     href: "https://www.linux.org/",
