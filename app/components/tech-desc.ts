@@ -22,19 +22,20 @@ import type { TechnologiesUsed } from "~/types/libraries";
 
 export const TECHNOLOGIES_KNOWN: TechnologiesUsed[] = [
   {
-    src: angularURL,
-    alt: "Angular",
-    href: "https://angular.io/",
-    knownLevel: 4,
-    keypoints: [],
-  },
-  {
     src: typescriptURL,
     alt: "TypeScript",
     href: "https://www.typescriptlang.org/",
     knownLevel: 5,
     keypoints: [],
   },
+  {
+    src: angularURL,
+    alt: "Angular",
+    href: "https://angular.io/",
+    knownLevel: 4,
+    keypoints: [],
+  },
+
   {
     src: csharpURL,
     alt: "C#",
@@ -70,6 +71,13 @@ export const TECHNOLOGIES_KNOWN: TechnologiesUsed[] = [
     knownLevel: 4,
     keypoints: [],
   },
+  {
+    src: linuxURL,
+    alt: "Linux",
+    href: "https://www.linux.org/",
+    knownLevel: 4,
+    keypoints: [],
+  },
   // {
   //   src: nodejsURL,
   //   alt: "Node.js",
@@ -84,13 +92,7 @@ export const TECHNOLOGIES_KNOWN: TechnologiesUsed[] = [
   //   knownLevel: 4,
   //   keypoints: [],
   // },
-  {
-    src: postgresqlURL,
-    alt: "PostgreSQL",
-    href: "https://www.postgresql.org/",
-    knownLevel: 2,
-    keypoints: [],
-  },
+
   {
     src: mongodbURL,
     alt: "MongoDB",
@@ -107,7 +109,7 @@ export const TECHNOLOGIES_KNOWN: TechnologiesUsed[] = [
   },
   {
     src: awsURL,
-    alt: "Amazon Web Services",
+    alt: "AWS",
     href: "https://aws.amazon.com/",
     knownLevel: 3,
     keypoints: [],
@@ -147,11 +149,12 @@ export const TECHNOLOGIES_KNOWN: TechnologiesUsed[] = [
     knownLevel: 3,
     keypoints: [],
   },
+
   {
-    src: linuxURL,
-    alt: "Linux",
-    href: "https://www.linux.org/",
-    knownLevel: 4,
+    src: postgresqlURL,
+    alt: "PostgreSQL",
+    href: "https://www.postgresql.org/",
+    knownLevel: 2,
     keypoints: [],
   },
 ];

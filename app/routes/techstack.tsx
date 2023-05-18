@@ -12,7 +12,7 @@ export const links: LinksFunction = () => {
   ];
 };
 
-export function techList() {
+export function TechList() {
   return (
   <ul className="mx-auto mt-4 flex flex-row flex-wrap items-center justify-center gap-4 sm:flex-row w-2/4">
     {TECHNOLOGIES_KNOWN.map((tech) => (
@@ -23,8 +23,12 @@ export function techList() {
 export default function Index() {
   return (
     SideNavPage(
-    <h2 className="mx-auto mt-8 text-center text-xl sm:text-2xl">
+    <div>
+      <h2 className="mx-auto mt-8 text-center text-xl sm:text-2xl">
       My tech stack
-    </h2>
+      </h2>
+      {TechList()}
+    </div>
+
     ));
 }
