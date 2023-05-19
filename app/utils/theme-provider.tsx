@@ -11,10 +11,11 @@ const prefersDarkMQ = '(prefers-color-scheme: dark)';
 const getPreferredTheme = () => (window.matchMedia(prefersDarkMQ).matches ? Theme.DARK : Theme.LIGHT);
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-function useTheme() {
+function useTheme(): ThemeContextType {
   const context = useContext(ThemeContext);
   if (context === undefined) {
-    throw new Error('useTheme must be used within a ThemeProvider');
+    console.error('useTheme must be used within a ThemeProvider');
+    return [null, () => {}];
   }
   return context;
 }
@@ -44,7 +45,7 @@ const clientThemeCode = `
   if (themeAlreadyApplied) {
     // this script shouldn't exist if the theme is already applied!
     console.warn(
-      "Hi there, could you let Matt know you're seeing this message? Thanks!",
+      "Hi there, could you let Sunnee know you're seeing this message? Thanks!",
     );
   } else {
     cl.add(theme);

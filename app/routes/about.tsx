@@ -30,7 +30,7 @@ const LIBRARIES: LibrariesUsed[] = [
 
 export default function About() {
   return (
-    SideNavPage(
+
       <div className="h-full p-4 md:p-8 dark:border-gray-300 dark:bg-gray-300">
       <h2 className="mx-auto mt-8 text-center text-xl sm:text-2xl">
         This website is built and served using these
@@ -49,7 +49,7 @@ export default function About() {
         ))}
       </ul>
     </div>
-    ));
+    );
 }
 
 export const links: LinksFunction = () => {

@@ -5,13 +5,12 @@ import { Routes } from "~/constants/routes";
 
 export default function Index() {
   return (
-    SideNavPage(
       <div className="h-full dark:border-gray-300 dark:bg-gray-300">
           <h1 className="pt-8 text-center text-5xl font-extrabold uppercase tracking-tight text-purple-500 text-purple-700 drop-shadow-md">
             Sunnee Chevalier's Website
           </h1>
       </div>
-  ));
+  );
 }
 
     // <main className="min-h-screen">
