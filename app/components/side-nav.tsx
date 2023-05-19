@@ -1,22 +1,16 @@
 import {Sidebar, SidebarProps} from 'flowbite-react'
 import { useState } from 'react';
 import { Routes } from '~/constants/routes'
-
+import { Theme, useTheme } from '~/utils/theme-provider';
 export default function SideNavPage(content: JSX.Element) {
-  const [input, setInput] = useState(content.props?.value ?? '');
-  // const changeTheme = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   if (e.currentTarget.value === 'dark') {
-  //     console.log(input);
-  //     document.documentElement.classList.add('dark')
-  //   } else {
-  //     console.log(input);
-  //     document.documentElement.classList.remove('dark')
-  //   }
-  // }
+  const [, setTheme] = useTheme();
 
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT));
+  };
 
   return (
-    <main className='flex h-full'>
+    <main className='flex h-full '>
       <Sidebar className='h-full'>
         <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
           <ul className="h-full space-y-2 font-medium">
@@ -24,12 +18,6 @@ export default function SideNavPage(content: JSX.Element) {
                 <a href="/" className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                   <svg aria-hidden="true" className="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path></svg>
                   <span className="ml-3">Entrance</span>
-                </a>
-            </li>
-            <li>
-                <a href="/about" className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                  <svg aria-hidden="true" className="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path></svg>
-                  <span className="ml-3">About</span>
                 </a>
             </li>
             <li>
@@ -51,17 +39,23 @@ export default function SideNavPage(content: JSX.Element) {
                   <span className="flex-1 ml-3 whitespace-nowrap">Tech stack</span>
                 </a>
             </li>
+            <li>
+                <a href="/about" className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <svg aria-hidden="true" className="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path></svg>
+                  <span className="ml-3">About</span>
+                </a>
+            </li>
             <li className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 justify between">
               <svg className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="800px" height="800px" viewBox="0 0 24 24" version="1.1">
                 {/*Moon*/}
-                  <g id="🔍-Product-Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                      <g id="ic_fluent_dark_theme_24_regular" fill="#212121" fill-rule="nonzero">
+                  <g id="🔍-Product-Icons" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+                      <g id="ic_fluent_dark_theme_24_regular" fill="#212121" fillRule="nonzero">
                           <path d="M12,22 C17.5228475,22 22,17.5228475 22,12 C22,6.4771525 17.5228475,2 12,2 C6.4771525,2 2,6.4771525 2,12 C2,17.5228475 6.4771525,22 12,22 Z M12,20.5 L12,3.5 C16.6944204,3.5 20.5,7.30557963 20.5,12 C20.5,16.6944204 16.6944204,20.5 12,20.5 Z" id="🎨-Color">
                           </path>
                       </g></g>
               </svg>
               <label className="relative inline-flex items-center cursor-pointer ml-3">
-                <input type="checkbox" value={input}  className="sr-only peer"/>
+                <input type="checkbox" onClick={toggleTheme} className="sr-only peer"/>
                 <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
               </label>
             </li>

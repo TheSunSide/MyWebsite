@@ -24,7 +24,7 @@ export default function ProjectPage() {
     return null;
   }
   return (
-    <section>
+    <section className="dark:border-gray-300 dark:bg-gray-300">
       <h2 className="mx-auto mt-8 text-center text-xl sm:text-2xl">
       {projectDesc.name}
       </h2>

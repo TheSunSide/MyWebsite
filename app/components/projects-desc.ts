@@ -125,4 +125,4 @@ export const projectsDesc: ProjectDesc[] = [
     technologies: ["TypeScript", "React", "Remix", "Tailwind"],
     link: "/website",
   },
-];
+].reverse();

@@ -31,9 +31,9 @@ const LIBRARIES: LibrariesUsed[] = [
 export default function About() {
   return (
     SideNavPage(
-      <div className="m-4 md:m-8">
+      <div className="h-full p-4 md:p-8 dark:border-gray-300 dark:bg-gray-300">
       <h2 className="mx-auto mt-8 text-center text-xl sm:text-2xl">
-        This website is built using these
+        This website is built and served using these
       </h2>
       <ul className="mx-auto mt-4 flex flex-col flex-wrap items-center justify-center gap-4 sm:flex-row">
         {LIBRARIES.map(({ src, alt, href }) => (

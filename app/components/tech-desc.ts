@@ -58,13 +58,6 @@ export const TECHNOLOGIES_KNOWN: TechnologiesUsed[] = [
     keypoints: [],
   },
   {
-    src: javaURL,
-    alt: "Java",
-    href: "https://www.java.com/en/",
-    knownLevel: 4,
-    keypoints: [],
-  },
-  {
     src: pythonURL,
     alt: "Python",
     href: "https://www.python.org/",
@@ -92,7 +85,13 @@ export const TECHNOLOGIES_KNOWN: TechnologiesUsed[] = [
   //   knownLevel: 4,
   //   keypoints: [],
   // },
-
+  {
+    src: javaURL,
+    alt: "Java",
+    href: "https://www.java.com/en/",
+    knownLevel: 3,
+    keypoints: [],
+  },
   {
     src: mongodbURL,
     alt: "MongoDB",
