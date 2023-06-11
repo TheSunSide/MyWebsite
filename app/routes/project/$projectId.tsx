@@ -19,6 +19,7 @@ export default function ProjectPage() {
   const nav = useNavigate();
   const params = useParams();
   const projectDesc = useLoaderData();
+  console.log("ProjectPage Rendered");
   if(!projectDesc) {
     nav(Routes.project);
     return null;

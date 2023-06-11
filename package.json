@@ -37,8 +37,8 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20230518.0",
-    "@remix-run/dev": "^1.16.0",
-    "@remix-run/eslint-config": "^1.16.0",
+    "@remix-run/dev": "^1.16.1",
+    "@remix-run/eslint-config": "^1.16.1",
     "@tailwindcss/typography": "^0.5.8",
     "@testing-library/dom": "^8.19.0",
     "@testing-library/jest-dom": "^5.16.5",

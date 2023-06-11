@@ -1,8 +1,10 @@
 node_modules
 
 /build
+/functions
 /public/build
 .env
 yarn-error.log
 
 /app/styles/tailwind.css
+

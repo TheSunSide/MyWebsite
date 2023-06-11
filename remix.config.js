@@ -14,12 +14,12 @@ module.exports = {
   // appDirectory: "app",
   // assetsBuildDirectory: "public/build",
   // publicPath: "/build/",
-  future: {
-    v2_errorBoundary: true,
-    v2_meta: true,
-    v2_normalizeFormMethod: true,
-    v2_routeConvention: true,
-  },
+  // future: {
+  //   v2_errorBoundary: true,
+  //   v2_meta: true,
+  //   v2_normalizeFormMethod: true,
+  //   v2_routeConvention: true,
+  // },
   cacheDirectory: "./node_modules/.cache/remix",
   ignoredRouteFiles: ["**/.*", "**/*.css", "**/*.test.{js,jsx,ts,tsx}"],
   tailwind: true,

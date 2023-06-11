@@ -4,6 +4,7 @@ import { ProjectDesc, projectsDesc } from "~/components/projects-desc";
 import { Routes } from "~/constants/routes";
 export default function Projects() {
   //const nav = useNavigate();
+  console.log("Projects default Rendered");
   return (
       <div className="h-full dark:border-gray-300 dark:bg-gray-300">
         <h1 className="font-bold z-10 mx-auto pt-8 text-center text-xl sm:text-2xl">
