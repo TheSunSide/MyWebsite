@@ -1,7 +1,8 @@
 node_modules
 
 /build
-/functions
+/functions/[[path]].js
+/functions/[[path]].js.map
 /public/build
 .env
 yarn-error.log
