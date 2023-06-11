@@ -1,4 +1,3 @@
-import type { LinksFunction } from "@remix-run/node";
 import { useNavigate } from "@remix-run/react";
 import SideNavPage from "~/components/side-nav";
 import { Routes } from "~/constants/routes";
