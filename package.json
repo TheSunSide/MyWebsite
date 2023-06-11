@@ -1,18 +1,21 @@
 {
-  "name": "Sunnee's App",
+  "name": "Sunnees",
   "private": true,
   "sideEffects": false,
   "scripts": {
     "build": "remix build",
-    "dev": "remix dev",
+    "dev:remix": "remix watch",
+    "dev:wrangler": "cross-env NODE_ENV=development npm run wrangler",
+    "dev": "npm-run-all build --parallel \"dev:*\"",
+    "start": "cross-env NODE_ENV=production npm run wrangler",
     "format": "prettier -w .",
     "check": "prettier -c .",
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
-    "start": "remix-serve build",
     "test": "vitest --run",
     "test:watch": "vitest",
     "typecheck": "tsc -b",
-    "validate": "run-p test lint typecheck check"
+    "validate": "run-p test lint typecheck check",
+    "wrangler": "wrangler pages dev ./public"
   },
   "prettier": {},
   "eslintIgnore": [
@@ -21,10 +24,9 @@
     "/public/build"
   ],
   "dependencies": {
-    "@remix-run/node": "^1.16.0",
-    "@remix-run/react": "^1.16.0",
-    "@remix-run/serve": "^1.16.0",
-    "@remix-run/server-runtime": "^1.16.0",
+    "@remix-run/cloudflare": "^1.16.1",
+    "@remix-run/cloudflare-pages": "^1.16.1",
+    "@remix-run/react": "^1.16.1",
     "clsx": "^1.2.1",
     "flowbite": "^1.6.5",
     "flowbite-react": "^0.4.4",
@@ -34,6 +36,7 @@
     "tiny-invariant": "^1.3.1"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20230518.0",
     "@remix-run/dev": "^1.16.0",
     "@remix-run/eslint-config": "^1.16.0",
     "@tailwindcss/typography": "^0.5.8",
@@ -43,8 +46,8 @@
     "@testing-library/user-event": "^14.4.3",
     "@types/eslint": "^8.4.10",
     "@types/node": "^18.11.9",
-    "@types/react": "^18.0.25",
-    "@types/react-dom": "^18.0.8",
+    "@types/react": "^18.0.35",
+    "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^2.2.0",
     "@vitest/coverage-c8": "^0.24.5",
     "autoprefixer": "^10.4.13",
@@ -63,7 +66,8 @@
     "typescript": "^4.8.4",
     "vite": "^3.2.2",
     "vite-tsconfig-paths": "^3.5.2",
-    "vitest": "^0.24.5"
+    "vitest": "^0.24.5",
+    "wrangler": "^3.1.0"
   },
   "engines": {
     "node": ">=14"
