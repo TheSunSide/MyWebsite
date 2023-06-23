@@ -18,6 +18,8 @@ import figmaURL from "../assets/figma.svg";
 import cloudflareURL from "../assets/cloudflare.svg";
 import cppURL from "../assets/cpp.svg";
 import linuxURL from "../assets/linux.svg";
+import remixURL from "../assets/remix-logo.svg";
+import reactURL from "../assets/react.svg";
 import type { TechnologiesUsed } from "~/types/libraries";
 
 export const TECHNOLOGIES_KNOWN: TechnologiesUsed[] = [
@@ -26,14 +28,14 @@ export const TECHNOLOGIES_KNOWN: TechnologiesUsed[] = [
     alt: "TypeScript",
     href: "https://www.typescriptlang.org/",
     knownLevel: 5,
-    keypoints: [],
+    keyPoints: [],
   },
   {
     src: angularURL,
     alt: "Angular",
     href: "https://angular.io/",
     knownLevel: 4,
-    keypoints: [],
+    keyPoints: [],
   },
 
   {
@@ -41,35 +43,35 @@ export const TECHNOLOGIES_KNOWN: TechnologiesUsed[] = [
     alt: "C#",
     href: "https://docs.microsoft.com/en-us/dotnet/csharp/",
     knownLevel: 4,
-    keypoints: [],
+    keyPoints: [],
   },
   {
     src: unityURL,
     alt: "Unity",
     href: "https://unity.com/",
     knownLevel: 4,
-    keypoints: [],
+    keyPoints: [],
   },
   {
     src: cURL,
     alt: "C",
     href: "https://en.wikipedia.org/wiki/C_(programming_language)",
     knownLevel: 4,
-    keypoints: [],
+    keyPoints: [],
   },
   {
     src: pythonURL,
     alt: "Python",
     href: "https://www.python.org/",
     knownLevel: 4,
-    keypoints: [],
+    keyPoints: [],
   },
   {
     src: linuxURL,
     alt: "Linux",
     href: "https://www.linux.org/",
     knownLevel: 4,
-    keypoints: [],
+    keyPoints: [],
   },
   // {
   //   src: nodejsURL,
@@ -90,70 +92,84 @@ export const TECHNOLOGIES_KNOWN: TechnologiesUsed[] = [
     alt: "Java",
     href: "https://www.java.com/en/",
     knownLevel: 3,
-    keypoints: [],
+    keyPoints: [],
   },
   {
     src: mongodbURL,
     alt: "MongoDB",
     href: "https://www.mongodb.com/",
     knownLevel: 3,
-    keypoints: [],
+    keyPoints: [],
   },
   {
     src: dockerURL,
     alt: "Docker",
     href: "https://www.docker.com/",
     knownLevel: 3,
-    keypoints: [],
+    keyPoints: [],
   },
   {
     src: awsURL,
     alt: "AWS",
     href: "https://aws.amazon.com/",
     knownLevel: 3,
-    keypoints: [],
+    keyPoints: [],
   },
   {
     src: gcloudURL,
     alt: "Google Cloud",
     href: "https://cloud.google.com/",
     knownLevel: 3,
-    keypoints: [],
+    keyPoints: [],
   },
   {
     src: gitlabURL,
     alt: "GitLab",
     href: "https://about.gitlab.com/",
     knownLevel: 3,
-    keypoints: [],
+    keyPoints: [],
   },
   {
     src: figmaURL,
     alt: "Figma",
     href: "https://www.figma.com/",
     knownLevel: 3,
-    keypoints: [],
+    keyPoints: [],
   },
   {
     src: cloudflareURL,
     alt: "Cloudflare",
     href: "https://www.cloudflare.com/",
     knownLevel: 3,
-    keypoints: [],
+    keyPoints: [],
   },
   {
     src: cppURL,
     alt: "C++",
     href: "https://www.cplusplus.com/",
     knownLevel: 3,
-    keypoints: [],
+    keyPoints: [],
   },
 
   {
     src: postgresqlURL,
     alt: "PostgreSQL",
     href: "https://www.postgresql.org/",
+    knownLevel: 3,
+    keyPoints: [],
+  },
+  {
+    src: remixURL,
+    alt: "Remix",
+    href: "https://remix.run/",
     knownLevel: 2,
-    keypoints: [],
+    keyPoints: [],
+  },
+  {
+    src: reactURL,
+    alt: "React",
+    href: "https://reactjs.org/",
+    knownLevel: 2,
+    keyPoints: [],
   },
 ];

@@ -1,19 +1,19 @@
 import { useLoaderData, useNavigate } from "@remix-run/react";
 import SideNavPage from "~/components/side-nav"
-import type { ProjectDesc} from "~/components/projects-desc";
-import { projectsDesc } from "~/components/projects-desc";
+import { projectsDesc, type ProjectDesc} from "~/components/projects-desc";
 import { useParams } from "@remix-run/react";
 import type { LoaderArgs} from "@remix-run/server-runtime";
 import { Routes } from "~/constants/routes";
 import { TECHNOLOGIES_KNOWN } from "~/components/tech-desc";
+import { TechnologiesUsed } from "~/types/libraries";
 
-export async function loader({ params }: LoaderArgs): Promise<ProjectDesc | undefined> {
-  const projectId = params.projectId;
-  if(!projectId) {
+export async function loader({ params }: LoaderArgs): Promise<TechnologiesUsed | undefined> {
+  const techId = params.techId;
+  if(!techId) {
     return;
   }
-  const projectDesc = projectsDesc.find( (item:ProjectDesc)=>item.link.includes(projectId));
-  return projectDesc;
+  const techDesc = TECHNOLOGIES_KNOWN.find( (item:TechnologiesUsed)=>item.alt.includes(techId));
+  return techDesc;
 }
 function getArrowSVG() {
   return (<svg fill="currentColor"  version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" 
@@ -32,54 +32,40 @@ function getArrowSVG() {
 export default function ProjectPage() {
   const nav = useNavigate();
   const params = useParams();
-  const projectDesc = useLoaderData<ProjectDesc | undefined>();
-  console.log("ProjectPage Rendered");
-  if(!projectDesc) {
-    console.log("ProjectPage Rendered - no projectDesc");
-    
+  const techDesc = useLoaderData<TechnologiesUsed | undefined>();
+  console.log("TechPage Rendered");
+  if(!techDesc) {
+    console.log("TechPage Rendered - no techFound");
     nav(Routes.project,{});
     return null;
   }
 
-  console.log(projectDesc)
+  console.log(techDesc)
   return (
     <section className="dark:border-gray-300 dark:bg-gray-300">
-      <a href={Routes.project}>
+      <a href={Routes.techStack}>
         <button type="button"  className="ml-1 mt-1 text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800">
           {getArrowSVG()}
-          See projects
+          See Technologies
         </button>
       </a>
-      <h1 className="font-bold z-10 mx-auto pt-8 text-center text-xl sm:text-2xl">
-      {projectDesc.name} - {projectDesc.year}
-      </h1>
+      <h2 className="mx-auto mt-4 text-center text-2xl font-bold tracking-tight text-gray-900">
+      {techDesc.alt}
+      </h2>
       <section className="flex justify-center flex-col mx-auto mt-8 text-center">
         <ul className="mx-auto mb-8 space-y-4 text-gray-500 dark:text-gray-400">
-          { projectDesc.keyPoints.map((keyPoint, index) => 
+          { techDesc.keyPoints.map((keyPoint, index) => 
             {
               return (
-                <li className="flex items-center space-x-3" key={projectDesc.name+index}>
+                <li className="flex items-center space-x-3" key={techDesc.alt+index}>
                   <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
                   <span>{keyPoint}</span>
                 </li>)
             })}
         </ul>
-        <h3>Built using these</h3>
+        <h3>Used on these projects (Incoming...)</h3>
         <ul className="mx-auto mt-4 flex flex-col flex-wrap items-center justify-center gap-4 sm:flex-row">
-          {
-            projectDesc.technologies.filter((tech)=>TECHNOLOGIES_KNOWN.find( (item)=>item.alt === tech)).map((tech) => {
-            const techKnown = TECHNOLOGIES_KNOWN.find( (item)=>item.alt === tech);
-            return (
-            <li key={techKnown!.href} className="">
-              <a
-                href={techKnown!.href}
-                className="flex h-16 w-32 grayscale transition hover:grayscale-0 focus:grayscale-0"
-              >
-                <img src={techKnown!.src} alt="" className="h-full w-full" />
-                {/* <p>{alt}</p> */}
-              </a>
-            </li>)
-          })}
+          {/* ... */}
         </ul>
       </section> 
     </section>
