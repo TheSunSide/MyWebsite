@@ -5,7 +5,7 @@
   "scripts": {
     "build": "remix build",
     "dev:remix": "remix watch",
-    "dev:wrangler": "cross-env NODE_ENV=development npm run wrangler",
+    "dev:wrangler": "npm run build && cross-env NODE_ENV=development npm run wrangler --live-reload",
     "dev": "npm-run-all build --parallel \"dev:*\"",
     "start": "cross-env NODE_ENV=production npm run wrangler",
     "format": "prettier -w .",

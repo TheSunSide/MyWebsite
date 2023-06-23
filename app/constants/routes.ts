@@ -1,5 +1,6 @@
 export const Routes = {
   project: "/project",
   about: "/about",
-  techstack: "/techstack",
+  techStack: "/tech",
+  specificTech: (tech: string) => `/tech/${tech}`,
 } as const;

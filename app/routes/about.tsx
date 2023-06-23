@@ -30,11 +30,10 @@ const LIBRARIES: LibrariesUsed[] = [
 
 export default function About() {
   return (
-
-      <div className="h-full p-4 md:p-8 dark:border-gray-300 dark:bg-gray-300">
-      <h2 className="mx-auto mt-8 text-center text-xl sm:text-2xl">
+    <div className="h-full p-4 md:p-8 dark:border-gray-300 dark:bg-gray-300">
+      <h1 className="font-bold z-10 mx-auto pt-8 text-center text-xl sm:text-2xl">
         This website is built and served using these
-      </h2>
+      </h1>
       <ul className="mx-auto mt-4 flex flex-col flex-wrap items-center justify-center gap-4 sm:flex-row">
         {LIBRARIES.map(({ src, alt, href }) => (
           <li key={href} className="">

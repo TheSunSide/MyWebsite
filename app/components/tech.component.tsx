@@ -1,3 +1,4 @@
+import { Routes } from "~/constants/routes";
 import type { TechnologiesUsed } from "~/types/libraries";
 
 function renderStars(num: number, key: string) {
@@ -16,14 +17,14 @@ function renderStars(num: number, key: string) {
 
 
 export const techComponent = (tech: TechnologiesUsed) => (
-  <li key={tech.href} className="py-2 h-full">
-    <a href={tech.href} className="px-2 py-2 h-full flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100">
+  <li key={tech.alt} className="py-2 h-full">
+    <a href={Routes.specificTech(tech.alt)} className="px-2 py-2 h-full flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100">
       <img className="object-cover w-full h-auto md:w-24" src={tech.src} alt=""/>
       <div className="flex flex-col justify-between p-4 leading-normal">
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">{tech.alt}</h5>
           {/* <div className="mb-3 font-normal text-gray-700 dark:text-gray-400">
               </div> */}
-          {renderStars(tech.knownLevel, tech.href)}
+          {renderStars(tech.knownLevel, tech.alt)}
       </div>
     </a>
   </li>
