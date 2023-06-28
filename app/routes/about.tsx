@@ -1,10 +1,10 @@
-import type { LinksFunction } from "@remix-run/node";
+import type { LinksFunction } from "@remix-run/cloudflare";
 import remixLogoUrl from "../assets/remix-logo.svg";
 import tailwindLogoUrl from "../assets/tailwind.svg";
 import typescriptURL from "../assets/typescript.svg";
 import cloudflareLogoUrl from "../assets/cloudflare.svg";
 import type { LibrariesUsed } from "~/types/libraries";
-import SideNavPage from "~/components/side-nav";
+import { Routes } from "~/constants/routes";
 const LIBRARIES: LibrariesUsed[] = [
   {
     src: tailwindLogoUrl,
@@ -38,7 +38,7 @@ export default function About() {
         {LIBRARIES.map(({ src, alt, href }) => (
           <li key={href} className="">
             <a
-              href={href}
+              href={Routes.specificTech(alt)}
               className="flex h-16 w-32 grayscale transition hover:grayscale-0 focus:grayscale-0"
             >
               <img src={src} alt="" className="h-full w-full" />

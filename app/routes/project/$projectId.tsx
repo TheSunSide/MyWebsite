@@ -13,6 +13,11 @@ export async function loader({ params }: LoaderArgs): Promise<ProjectDesc | unde
     return;
   }
   const projectDesc = projectsDesc.find( (item:ProjectDesc)=>item.link.includes(projectId));
+
+  if(!projectsDesc) {
+    throw new Response('Not found', {"status" : 404 })
+  }
+
   return projectDesc;
 }
 function getArrowSVG() {
@@ -72,11 +77,10 @@ export default function ProjectPage() {
             return (
             <li key={techKnown!.href} className="">
               <a
-                href={techKnown!.href}
+                href={Routes.specificTech(techKnown!.alt)}
                 className="flex h-16 w-32 grayscale transition hover:grayscale-0 focus:grayscale-0"
               >
                 <img src={techKnown!.src} alt="" className="h-full w-full" />
-                {/* <p>{alt}</p> */}
               </a>
             </li>)
           })}

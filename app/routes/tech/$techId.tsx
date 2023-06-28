@@ -1,11 +1,11 @@
 import { useLoaderData, useNavigate } from "@remix-run/react";
-import SideNavPage from "~/components/side-nav"
-import { projectsDesc, type ProjectDesc} from "~/components/projects-desc";
 import { useParams } from "@remix-run/react";
 import type { LoaderArgs} from "@remix-run/server-runtime";
 import { Routes } from "~/constants/routes";
 import { TECHNOLOGIES_KNOWN } from "~/components/tech-desc";
-import { TechnologiesUsed } from "~/types/libraries";
+import type { TechnologiesUsed } from "~/types/libraries";
+import { projectsDesc } from "~/components/projects-desc";
+import { ProjectCard } from "~/components/project-card";
 
 export async function loader({ params }: LoaderArgs): Promise<TechnologiesUsed | undefined> {
   const techId = params.techId;
@@ -13,6 +13,10 @@ export async function loader({ params }: LoaderArgs): Promise<TechnologiesUsed |
     return;
   }
   const techDesc = TECHNOLOGIES_KNOWN.find( (item:TechnologiesUsed)=>item.alt.includes(techId));
+  if(!techDesc) {
+    throw new Response('Not found', {"status" : 404 })
+  }
+
   return techDesc;
 }
 function getArrowSVG() {
@@ -33,14 +37,12 @@ export default function ProjectPage() {
   const nav = useNavigate();
   const params = useParams();
   const techDesc = useLoaderData<TechnologiesUsed | undefined>();
-  console.log("TechPage Rendered");
   if(!techDesc) {
-    console.log("TechPage Rendered - no techFound");
     nav(Routes.project,{});
+    console.log("ProjectPage Rendered - no techDesc -- trying to redirect")
     return null;
   }
 
-  console.log(techDesc)
   return (
     <section className="dark:border-gray-300 dark:bg-gray-300">
       <a href={Routes.techStack}>
@@ -52,7 +54,10 @@ export default function ProjectPage() {
       <h2 className="mx-auto mt-4 text-center text-2xl font-bold tracking-tight text-gray-900">
       {techDesc.alt}
       </h2>
-      <section className="flex justify-center flex-col mx-auto mt-8 text-center">
+      <section className="flex justify-center flex-col mx-auto mt-8 text-center items-center">
+        <div className="flex h-16 w-32">
+          <img src={techDesc.src} alt="" className="h-full w-full" />
+        </div>
         <ul className="mx-auto mb-8 space-y-4 text-gray-500 dark:text-gray-400">
           { techDesc.keyPoints.map((keyPoint, index) => 
             {
@@ -63,10 +68,13 @@ export default function ProjectPage() {
                 </li>)
             })}
         </ul>
-        <h3>Used on these projects (Incoming...)</h3>
-        <ul className="mx-auto mt-4 flex flex-col flex-wrap items-center justify-center gap-4 sm:flex-row">
-          {/* ... */}
-        </ul>
+        <h3>Used on these projects</h3>
+        <li className="mx-auto mt-4 flex flex-col flex-wrap items-center justify-center gap-4 sm:flex-row">
+          {projectsDesc.filter((projectDesc) => projectDesc.technologies.includes(techDesc.alt)).map((item) => {
+            const projectLink = Routes.specificProject(item.link);
+            return (ProjectCard(item, projectLink));
+            })}
+        </li>
       </section> 
     </section>
     

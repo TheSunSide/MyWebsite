@@ -20,6 +20,7 @@ import cppURL from "../assets/cpp.svg";
 import linuxURL from "../assets/linux.svg";
 import remixURL from "../assets/remix-logo.svg";
 import reactURL from "../assets/react.svg";
+import tailWindURL from "../assets/tailwind.svg";
 import type { TechnologiesUsed } from "~/types/libraries";
 
 export const TECHNOLOGIES_KNOWN: TechnologiesUsed[] = [
@@ -169,6 +170,13 @@ export const TECHNOLOGIES_KNOWN: TechnologiesUsed[] = [
     src: reactURL,
     alt: "React",
     href: "https://reactjs.org/",
+    knownLevel: 2,
+    keyPoints: [],
+  },
+  {
+    src: tailWindURL,
+    alt: "Tailwind",
+    href: "https://tailwindcss.com/",
     knownLevel: 2,
     keyPoints: [],
   },

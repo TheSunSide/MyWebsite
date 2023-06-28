@@ -108,7 +108,7 @@ export const projectsDesc: ProjectDesc[] = [
       "Angular",
       "Node.js",
       "MongoDB",
-      "gCloud",
+      "Google Cloud",
       "gitlab",
       "Flutter",
     ],
@@ -122,7 +122,7 @@ export const projectsDesc: ProjectDesc[] = [
       "I wanted to create a website to showcase my projects and my skills",
       "I also wanted to learn how to use Remix and Tailwind",
     ],
-    technologies: ["TypeScript", "React", "Remix", "Tailwind"],
+    technologies: ["TypeScript", "React", "Remix", "Tailwind", "Cloudflare"],
     link: "/website",
   },
 ].reverse();
