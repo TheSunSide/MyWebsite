@@ -5,6 +5,7 @@ import typescriptURL from "../assets/typescript.svg";
 import cloudflareLogoUrl from "../assets/cloudflare.svg";
 import type { LibrariesUsed } from "~/types/libraries";
 import { Routes } from "~/constants/routes";
+import githubSVG from "~/assets/github.svg";
 const LIBRARIES: LibrariesUsed[] = [
   {
     src: tailwindLogoUrl,
@@ -47,6 +48,14 @@ export default function About() {
           </li>
         ))}
       </ul>
+      <h1 className="font-bold z-10 mx-auto pt-8 text-center text-xl sm:text-2xl mt-4">Available on a public Github Repo</h1>
+      <a href="https://github.com/TheSunSide/MyWebsite" className="mx-auto flex h-16 w-32 mt-2">
+        <img src={githubSVG} alt="gitIcon" className="h-full w-full" />
+      </a>
+      <a href="https://github.com/TheSunSide/MyWebsite" className="mx-auto pt-8 text-center">
+        <p>Repo link: https://github.com/TheSunSide/MyWebsite</p>
+      </a>
+      
     </div>
     );
 }

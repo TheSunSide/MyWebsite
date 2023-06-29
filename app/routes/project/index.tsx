@@ -14,7 +14,8 @@ export default function Projects() {
         <section className="mx-auto pt-8 text-center overflow-auto max-h-fit grid grid-cols-2 gap-y-2 sm:flex-row w-2/4">
           {projectsDesc.map( (item:ProjectDesc)=>{
             const projectLink = Routes.project + item.link;
-            return ProjectCard(item, projectLink);
+            //return ProjectCard(item, projectLink);
+            return <ProjectCard item={item} projectLink={projectLink} key={item.name} />
           })}
         </section> 
       </div>

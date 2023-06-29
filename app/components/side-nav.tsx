@@ -1,13 +1,33 @@
 import {Sidebar, SidebarProps} from 'flowbite-react'
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
+import { e } from 'vitest/dist/index-220c1d70';
 import { Routes } from '~/constants/routes'
-//import { Theme, useTheme } from '~/utils/theme-provider';
-export default function SideNavPage(content: JSX.Element) {
-  //const [, setTheme] = useTheme();
 
-  //const toggleTheme = () => {
-    //setTheme((prevTheme) => (prevTheme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT));
- // };
+enum Theme {
+  light = 'light',
+  dark = 'dark'
+}
+
+export default function SideNavPage({children}: {children: JSX.Element}) {
+  // Since its rendered on the server...
+  // const [theme, setTheme] = useState(Theme.light)
+  // if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+  //   document.documentElement.classList.add('dark')
+  //   setTheme(Theme.dark)
+  // } else {
+  //   document.documentElement.classList.remove('dark')
+  //   setTheme(Theme.light)
+  // }
+
+  // function toggleTheme(event: ChangeEvent<HTMLInputElement>): void {
+  //   if (event.target.checked) {
+  //     document.documentElement.classList.add('dark')
+  //     localStorage.theme = 'dark'
+  //   } else {
+  //     document.documentElement.classList.remove('dark')
+  //     localStorage.theme = 'light'
+  //   }
+  // }
 
   return (
     <main className='flex h-full '>
@@ -55,7 +75,7 @@ export default function SideNavPage(content: JSX.Element) {
                       </g></g>
               </svg>
               <label className="relative inline-flex items-center cursor-pointer ml-3">
-                <input type="checkbox" /*checked={useTheme()[0]==='dark'} onChange={toggleTheme}*/ className="sr-only peer"/>
+                <input type="checkbox" /*checked={theme === Theme.dark} onChange={toggleTheme}*/ className="sr-only peer"/>
                 <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
               </label>
             </li>
@@ -64,7 +84,7 @@ export default function SideNavPage(content: JSX.Element) {
 
       </Sidebar>
       <div className='grow w-max h-full'>
-        {content}
+        {children}
       </div>
     </main>
   )

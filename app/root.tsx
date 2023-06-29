@@ -31,16 +31,17 @@ export function App() {
       <Links />
     </head>
     <body className="h-full bg-slate-50">
-      {SideNavPage(<Outlet />)}
       <ScrollRestoration />
       <Scripts />
       <LiveReload />
+      <SideNavPage>
+        <Outlet />
+      </SideNavPage>
     </body> 
   </html>);
 }
 
 export default function AppWithProviders() {
-
   return (
     <App />
   );
