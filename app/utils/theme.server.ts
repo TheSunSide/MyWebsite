@@ -10,6 +10,12 @@ if (!sessionSecret) {
   throw new Error("SESSION_SECRET must be set");
 }
 
+if (sessionSecret === "temp") {
+  console.warn(
+    "SESSION_SECRET is set to default value, please set it to a random string"
+  );
+}
+
 const themeStorage = createCookieSessionStorage({
   cookie: {
     name: "my_remix_theme",

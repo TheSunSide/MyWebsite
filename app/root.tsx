@@ -13,7 +13,7 @@ import tailwindStylesheetUrl from "~/tailwind.css";
 import SideNavPage from "./components/side-nav";
 import React from "react";
 import type { Theme} from "./utils/theme-provider";
-import { NonFlashOfWrongThemeEls, ThemeProvider } from "./utils/theme-provider";
+import { NonFlashOfWrongThemeEls, ThemeProvider, useTheme } from "./utils/theme-provider";
 
 import type { LoaderFunction } from '@remix-run/cloudflare';
 import { getThemeSession } from './utils/theme.server';
@@ -45,9 +45,10 @@ export const meta: MetaFunction = () => ({
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
 export function App() {
+  const [theme] = useTheme();
   const data = useLoaderData<LoaderData>();
   return (
-  <html lang="en" className={"h-full " } >
+  <html lang="en" className={clsx(theme, "h-full") } >
     <head>
       <Meta />
       <Links />
