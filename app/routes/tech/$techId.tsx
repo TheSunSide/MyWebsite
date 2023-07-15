@@ -72,7 +72,7 @@ export default function ProjectPage() {
         <li className="mx-auto mt-4 flex flex-col flex-wrap items-center justify-center gap-4 sm:flex-row">
           {projectsDesc.filter((projectDesc) => projectDesc.technologies.includes(techDesc.alt)).map((item) => {
             const projectLink = Routes.specificProject(item.link);
-            return (ProjectCard(item, projectLink));
+            return (ProjectCard({item, projectLink}));
             })}
         </li>
       </section> 

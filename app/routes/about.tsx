@@ -53,7 +53,7 @@ export default function About() {
         <img src={githubSVG} alt="gitIcon" className="h-full w-full" />
       </a>
       <a href="https://github.com/TheSunSide/MyWebsite" className="mx-auto pt-8 text-center">
-        <p>Repo link: https://github.com/TheSunSide/MyWebsite</p>
+        <p>https://github.com/TheSunSide/MyWebsite</p>
       </a>
       
     </div>
