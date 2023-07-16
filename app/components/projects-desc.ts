@@ -119,7 +119,7 @@ export const projectsDesc: ProjectDesc[] = [
     year: "2023 - ...",
     keyPoints: [
       "This website is a personal project",
-      "I wanted to create a website to showcase my projects and my skills",
+      "I wanted to create a website to showcase my past projects and my skills",
       "I also wanted to learn how to use Remix and Tailwind",
     ],
     technologies: ["TypeScript", "React", "Remix", "Tailwind", "Cloudflare"],

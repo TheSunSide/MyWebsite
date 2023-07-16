@@ -91,12 +91,7 @@ const clientThemeCode = `
     : 'light';
   const cl = document.documentElement.classList;
   const themeAlreadyApplied = cl.contains('light') || cl.contains('dark');
-  if (themeAlreadyApplied) {
-    // this script shouldn't exist if the theme is already applied!
-    console.warn(
-      "Hi there, could you let Matt know you're seeing this message? Thanks!",
-    );
-  } else {
+  if (!themeAlreadyApplied) {
     console.log('adding theme');
     cl.add(theme);
   }
@@ -108,10 +103,6 @@ const clientThemeCode = `
     } else if (theme === 'light') {
       meta.content = 'light dark';
     }
-  } else {
-    console.warn(
-      "Hey, could you let Matt know you're seeing this message? Thanks!",
-    );
   }
 })();
 `;

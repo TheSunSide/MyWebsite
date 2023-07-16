@@ -8,13 +8,14 @@ export const links: LinksFunction = () => {
     ...TECHNOLOGIES_KNOWN.map(({ src }) => ({
       rel: "preload",
       href: src,
+      as: "image"
     })),
   ];
 };
 
 export function TechList() {
   return (
-  <ul className="mx-auto pt-4 grid xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 grid-cols-1 gap-4 w-3/4 overflow-y-auto no-scrollbar">
+  <ul className="mx-auto pt-4 grid xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 grid-cols-1 gap-4 w-3/4 overflow-y-auto no-scrollbar dark:text-white">
     {TECHNOLOGIES_KNOWN.map((tech) => (
       techComponent(tech)
     ))}
@@ -22,8 +23,8 @@ export function TechList() {
 }
 export default function Index() {
   return (
-    <div className="h-full dark:border-gray-300 dark:bg-gray-300 max-h-full flex flex-col">
-      <h1 className="font-bold z-10 mx-auto pt-8 text-center text-xl sm:text-2xl">
+    <div className="h-full max-h-full flex flex-col no-scrollbar">
+      <h1 className="font-bold z-10 mx-auto pt-8 text-center text-xl sm:text-2xl dark:text-white">
       My tech stack
       </h1>
       {TechList()}

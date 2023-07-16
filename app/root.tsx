@@ -53,7 +53,7 @@ export function App() {
       <Links />
       <NonFlashOfWrongThemeEls ssrTheme={Boolean(data.theme)}/>
     </head>
-    <body className="h-full bg-slate-50">
+    <body className="h-full dark:bg-gray-900 bg-gray-50">
       <ScrollRestoration />
       <Scripts />
       <LiveReload />

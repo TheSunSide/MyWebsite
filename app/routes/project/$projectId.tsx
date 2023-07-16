@@ -48,14 +48,14 @@ export default function ProjectPage() {
 
   console.log(projectDesc)
   return (
-    <section className="dark:border-gray-300 dark:bg-gray-300">
+    <section className="h-full">
       <a href={Routes.project}>
         <button type="button"  className="ml-1 mt-1 text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800">
           {getArrowSVG()}
           See projects
         </button>
       </a>
-      <h1 className="font-bold z-10 mx-auto pt-8 text-center text-xl sm:text-2xl">
+      <h1 className="font-bold z-10 mx-auto pt-8 text-center text-xl sm:text-2xl dark:text-white">
       {projectDesc.name} - {projectDesc.year}
       </h1>
       <section className="flex justify-center flex-col mx-auto mt-8 text-center">
@@ -69,7 +69,7 @@ export default function ProjectPage() {
                 </li>)
             })}
         </ul>
-        <h3>Built using these</h3>
+        <h3 className="dark:text-white">Built using these</h3>
         <ul className="mx-auto mt-4 flex flex-col flex-wrap items-center justify-center gap-4 sm:flex-row">
           {
             projectDesc.technologies.filter((tech)=>TECHNOLOGIES_KNOWN.find( (item)=>item.alt === tech)).map((tech) => {
@@ -78,9 +78,11 @@ export default function ProjectPage() {
             <li key={techKnown!.href} className="">
               <a
                 href={Routes.specificTech(techKnown!.alt)}
-                className="flex h-16 w-32 grayscale transition hover:grayscale-0 focus:grayscale-0"
+                className="flex h-16 w-32  grayscale transition hover:grayscale-0 focus:grayscale-0"
               >
-                <img src={techKnown!.src} alt="" className="h-full w-full" />
+                <div className="px-2 py-2 dark:bg-gray-50 rounded-lg mx-auto">
+                  <img src={techKnown!.src} alt="" className="h-full w-full" />
+                </div>
               </a>
             </li>)
           })}

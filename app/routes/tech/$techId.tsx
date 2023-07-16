@@ -44,19 +44,21 @@ export default function ProjectPage() {
   }
 
   return (
-    <section className="dark:border-gray-300 dark:bg-gray-300">
+    <section className="h-full">
       <a href={Routes.techStack}>
         <button type="button"  className="ml-1 mt-1 text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800">
           {getArrowSVG()}
           See Technologies
         </button>
       </a>
-      <h2 className="mx-auto mt-4 text-center text-2xl font-bold tracking-tight text-gray-900">
+      <h2 className="mx-auto mt-4 text-center text-2xl font-bold tracking-tight dark:text-white">
       {techDesc.alt}
       </h2>
       <section className="flex justify-center flex-col mx-auto mt-8 text-center items-center">
         <div className="flex h-16 w-32">
-          <img src={techDesc.src} alt="" className="h-full w-full" />
+          <div className="px-2 py-2 dark:bg-gray-50 rounded-lg mx-auto">
+            <img src={techDesc.src} alt="" className="h-full w-full" />
+          </div>
         </div>
         <ul className="mx-auto mb-8 space-y-4 text-gray-500 dark:text-gray-400">
           { techDesc.keyPoints.map((keyPoint, index) => 
@@ -68,7 +70,7 @@ export default function ProjectPage() {
                 </li>)
             })}
         </ul>
-        <h3>Used on these projects</h3>
+        <h3 className="dark:text-white">Used on these projects</h3>
         <li className="mx-auto mt-4 flex flex-col flex-wrap items-center justify-center gap-4 sm:flex-row">
           {projectsDesc.filter((projectDesc) => projectDesc.technologies.includes(techDesc.alt)).map((item) => {
             const projectLink = Routes.specificProject(item.link);

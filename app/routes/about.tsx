@@ -31,8 +31,8 @@ const LIBRARIES: LibrariesUsed[] = [
 
 export default function About() {
   return (
-    <div className="h-full p-4 md:p-8 dark:border-gray-300 dark:bg-gray-300">
-      <h1 className="font-bold z-10 mx-auto pt-8 text-center text-xl sm:text-2xl">
+    <div className="h-full p-4 md:p-8">
+      <h1 className="font-bold z-10 mx-auto pt-8 text-center text-xl sm:text-2xl dark:text-white">
         This website is built and served using these
       </h1>
       <ul className="mx-auto mt-4 flex flex-col flex-wrap items-center justify-center gap-4 sm:flex-row">
@@ -42,17 +42,19 @@ export default function About() {
               href={Routes.specificTech(alt)}
               className="flex h-16 w-32 grayscale transition hover:grayscale-0 focus:grayscale-0"
             >
-              <img src={src} alt="" className="h-full w-full" />
+              <div className="px-2 py-2 dark:bg-gray-50 rounded-lg mx-auto">
+                <img src={src} alt="" className="h-full w-full" />
+              </div>
               {/* <p>{alt}</p> */}
             </a>
           </li>
         ))}
       </ul>
-      <h1 className="font-bold z-10 mx-auto pt-8 text-center text-xl sm:text-2xl mt-4">Available on a public Github Repo</h1>
+      <h1 className="font-bold z-10 mx-auto pt-8 text-center text-xl sm:text-2xl mt-4 dark:text-white">Available on a public Github Repo</h1>
       <a href="https://github.com/TheSunSide/MyWebsite" className="mx-auto flex h-16 w-32 mt-2">
         <img src={githubSVG} alt="gitIcon" className="h-full w-full" />
       </a>
-      <a href="https://github.com/TheSunSide/MyWebsite" className="mx-auto pt-8 text-center">
+      <a href="https://github.com/TheSunSide/MyWebsite" className="mx-auto pt-8 text-center dark:text-white">
         <p>https://github.com/TheSunSide/MyWebsite</p>
       </a>
       
