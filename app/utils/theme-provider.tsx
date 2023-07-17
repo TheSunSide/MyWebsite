@@ -11,6 +11,12 @@ type ThemeContextType = [Theme | null, Dispatch<SetStateAction<Theme | null>>];
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
+const themes: Array<Theme> = Object.values(Theme);
+
+const prefersDarkMQ = '(prefers-color-scheme: dark)';
+
+const getPreferredTheme = () => (window.matchMedia(prefersDarkMQ).matches ? Theme.DARK : Theme.LIGHT);
+
 function useTheme() {
   const context = useContext(ThemeContext);
   if (context === undefined) {
@@ -18,9 +24,6 @@ function useTheme() {
   }
   return context;
 }
-
-const prefersDarkMQ = '(prefers-color-scheme: dark)';
-const getPreferredTheme = () => (window.matchMedia(prefersDarkMQ).matches ? Theme.DARK : Theme.LIGHT);
 
 function ThemeProvider({
   children,
@@ -108,16 +111,12 @@ const clientThemeCode = `
 `;
 
 function NonFlashOfWrongThemeEls({ ssrTheme }: { ssrTheme: boolean }) {
- 
-
   return (
     <>
       {ssrTheme ? null : <script dangerouslySetInnerHTML={{__html: clientThemeCode}  } />}
     </>
   );
 }
-
-const themes: Array<Theme> = Object.values(Theme);
 
 function isTheme(value: unknown): value is Theme {
   return typeof value === 'string' && themes.includes(value as Theme);
