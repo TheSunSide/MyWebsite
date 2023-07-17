@@ -1,4 +1,4 @@
-import { json, redirect } from '@remix-run/cloudflare';
+import { json } from '@remix-run/cloudflare';
 import type { ActionFunction } from '@remix-run/cloudflare';
 
 import { getThemeSession } from '~/utils/theme.server';

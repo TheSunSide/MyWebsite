@@ -1,15 +1,21 @@
 import type { SidebarProps} from 'flowbite-react';
 import { Sidebar } from 'flowbite-react'
 import { Routes } from '~/constants/routes'
+import { Language, useLang } from '~/utils/lang-provider';
 import { Theme, useTheme } from '~/utils/theme-provider';
 //import { Theme, useTheme } from '~/utils/theme-provider';
 export default function SideNavPage({children}: {children: JSX.Element}) {
   const [theme, setTheme] = useTheme();
-
+  const [lang, setLang] = useLang();
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT));
     console.log("toggleTheme");
- };
+  };
+
+  const toggleLang = () => {
+    setLang((prevLang) => (prevLang === Language.EN ? Language.FR : Language.EN));
+    console.log("toggleLang");
+  };
 
  const sidebarTheme: SidebarProps["theme"] = {
   "root": {
@@ -79,13 +85,13 @@ export default function SideNavPage({children}: {children: JSX.Element}) {
             <li>
                 <a href="/" className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700">
                   <svg aria-hidden="true" className="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path></svg>
-                  <span className="ml-3">Entrance</span>
+                  <span className="ml-3">{lang===Language.EN?"Entrance":"Entrée"}</span>
                 </a>
             </li>
             <li>
                 <a href={Routes.project} className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700">
                   <svg aria-hidden="true" className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z" clipRule="evenodd"></path></svg>
-                  <span className="flex-1 ml-3 whitespace-nowrap">Projects</span>
+                  <span className="flex-1 ml-3 whitespace-nowrap">{lang===Language.EN?"Projects":"Projets"}</span>
                 </a>
             </li>
             <li>
@@ -98,13 +104,13 @@ export default function SideNavPage({children}: {children: JSX.Element}) {
                         <path d="M274.627,93.72c-4.267-1.707-9.387,1.707-10.24,5.973l-34.133,136.533c-1.707,4.267,1.707,9.387,5.973,10.24     c0,0,0.853,0,1.707,0c4.267,0,7.68-2.56,8.533-5.973L280.6,103.96C282.307,99.693,278.893,94.573,274.627,93.72z"/>
                     </g></g></g>
                   </svg>
-                  <span className="flex-1 ml-3 whitespace-nowrap">Tech stack</span>
+                  <span className="flex-1 ml-3 whitespace-nowrap">{lang===Language.EN?"Tech stack":"Pile technologique"}</span>
                 </a>
             </li>
             <li>
                 <a href="/about" className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700">
                   <svg aria-hidden="true" className="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path></svg>
-                  <span className="ml-3">About</span>
+                  <span className="ml-3">{lang===Language.EN?"About":"À propos"}</span>
                 </a>
             </li>
             <li className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 justify between">
@@ -120,6 +126,20 @@ export default function SideNavPage({children}: {children: JSX.Element}) {
                 <input type="checkbox" checked={theme === Theme.DARK} onChange={toggleTheme} className="sr-only peer"/>
                 <div className="w-11 h-6 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
               </label>
+            </li>
+            <li className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 justify between">
+              <span className='w-6'>
+                FR
+              </span>
+              <span>
+                <label className="relative inline-flex items-center cursor-pointer ml-3">
+                  <input type="checkbox" checked={lang === Language.EN} onChange={toggleLang} className="sr-only peer"/>
+                  <div className="w-11 h-6 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                </label>
+              </span>
+              <span className='ml-3'>
+                EN
+              </span>
             </li>
           </ul>
         </div>
