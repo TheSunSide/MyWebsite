@@ -34,7 +34,6 @@ function LangProvider({
   const [lang, setLang] = useState<Language | null>(() => {
     // there's no way for us to know what the theme should be in this context
     // the client will have to figure it out before hydration.
-    console.log("setting language")
     if (typeof window !== 'object') {
       console.log('no window object')
       return null;
@@ -80,7 +79,7 @@ function LangProvider({
       return;
     }
 
-    persistLangRef.current.submit({ theme: lang }, { action: 'action/set-lang', method: 'post' });
+    persistLangRef.current.submit({ lang: lang }, { action: 'action/set-lang', method: 'post' });
   }, [lang]);
 
   return <LangContext.Provider value={[lang, setLang]}>{children}</LangContext.Provider>;

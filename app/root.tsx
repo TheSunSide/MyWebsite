@@ -16,10 +16,9 @@ import type { Theme} from "./utils/theme-provider";
 import { NonFlashOfWrongThemeEls, ThemeProvider, useTheme } from "./utils/theme-provider";
 
 import type { LoaderFunction } from '@remix-run/cloudflare';
-import { getThemeSession } from './utils/theme.server';
 import type { Language } from "./utils/lang-provider";
 import { LangProvider } from "./utils/lang-provider";
-import { getLangSession } from "./utils/lang.server";
+import { getInfosSession } from "./utils/cookies.server";
 
 export type LoaderData = {
   theme: Theme | null;
@@ -27,11 +26,10 @@ export type LoaderData = {
 };
 
 export const loader: LoaderFunction = async ({ request }) => {
-  const themeSession = await getThemeSession(request);
-  const langSession = await getLangSession(request);
+  const cookieSession = await getInfosSession(request);
   const data: LoaderData = {
-    theme: themeSession.getTheme(),
-    lang: langSession.getLang(),
+    theme: cookieSession.getTheme(),
+    lang: cookieSession.getLang(),
   };
 
   return data;

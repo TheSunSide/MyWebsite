@@ -15,4 +15,9 @@ module.exports = {
       version: 28,
     },
   },
+  rules: {
+    camelcase: "always",
+    "no-invalid-this": "always",
+    semicolon: "warn",
+  },
 };

@@ -1,11 +1,10 @@
 import { json } from '@remix-run/cloudflare';
 import type { ActionFunction } from '@remix-run/cloudflare';
-
-import { getThemeSession } from '~/utils/theme.server';
+import { getInfosSession } from '~/utils/cookies.server';
 import { isTheme } from '~/utils/theme-provider';
 
 export const action: ActionFunction = async ({ request }) => {
-  const themeSession = await getThemeSession(request);
+  const themeSession = await getInfosSession(request);
   const requestText = await request.text();
   const form = new URLSearchParams(requestText);
   const theme = form.get('theme');

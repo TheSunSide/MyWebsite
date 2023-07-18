@@ -14,7 +14,6 @@ export default function SideNavPage({children}: {children: JSX.Element}) {
 
   const toggleLang = () => {
     setLang((prevLang) => (prevLang === Language.EN ? Language.FR : Language.EN));
-    console.log("toggleLang");
   };
 
  const sidebarTheme: SidebarProps["theme"] = {
