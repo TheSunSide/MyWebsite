@@ -20,7 +20,10 @@ export const techComponent = (tech: TechnologiesUsed) => (
   <li key={tech.alt} className="py-2 h-full">
     <a href={Routes.specificTech(tech.alt)} className="px-2 py-2 h-full flex items-center bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-700  rounded-lg shadow flex-row md:max-w-xl hover:bg-gray-100">
       <div className="px-2 py-2 dark:bg-gray-50 rounded-lg">
-        <img className="object-scale-down h-auto xl:w-20 lg:w-12 w-12 " src={tech.src} alt=""/>
+        <div className="object-scale-down h-auto xl:w-20 lg:w-12 w-12">
+          {tech.svg()}
+        </div>
+        {/* <img className="object-scale-down h-auto xl:w-20 lg:w-12 w-12 " src={tech.src} alt=""/> */}
       </div>
       <div className="flex flex-col justify-between p-4 leading-normal">
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{tech.alt}</h5>
