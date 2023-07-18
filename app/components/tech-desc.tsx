@@ -1,38 +1,38 @@
-import typescriptURL from "../assets/typescript.svg";
-import angularURL from "../assets/angular.svg";
-import csharpURL from "../assets/csharp.svg";
-import unityURL from "../assets/unity.svg";
-import cURL from "../assets/c.svg";
-import javaURL from "../assets/java.svg";
-import pythonURL from "../assets/python.svg";
+import typescriptURL from "../assets/typescript";
+import angularURL from "../assets/angular";
+import csharpURL from "../assets/csharp";
+import unityURL from "../assets/unity";
+import cURL from "../assets/c";
+import javaURL from "../assets/java";
+import pythonURL from "../assets/python";
 //import javascriptURL from "../assets/javascript.svg";
 // import nodejsURL from "../assets/nodejs.svg";
 // import expressURL from "../assets/express.svg";
-import postgresqlURL from "../assets/postgresql.svg";
-import mongodbURL from "../assets/mongo.svg";
-import dockerURL from "../assets/docker.svg";
-import awsURL from "../assets/aws.svg";
-import gcloudURL from "../assets/gcloud.svg";
-import gitlabURL from "../assets/gitlab.svg";
-import figmaURL from "../assets/figma.svg";
-import cloudflareURL from "../assets/cloudflare.svg";
-import cppURL from "../assets/cpp.svg";
-import linuxURL from "../assets/linux.svg";
-import remixURL from "../assets/remix-logo.svg";
-import reactURL from "../assets/react.svg";
-import tailWindURL from "../assets/tailwind.svg";
+import postgresqlURL from "../assets/postgresql";
+import mongodbURL from "../assets/mongo";
+import dockerURL from "../assets/docker";
+import awsURL from "../assets/aws";
+import gcloudURL from "../assets/gcloud";
+import gitlabURL from "../assets/gitlab";
+import figmaURL from "../assets/figma";
+import cloudflareURL from "../assets/cloudflare";
+import cppURL from "../assets/cpp";
+import linuxURL from "../assets/linux";
+import remixURL from "../assets/remix-logo";
+import reactURL from "../assets/react";
+import tailWindURL from "../assets/tailwind";
 import type { TechnologiesUsed } from "~/types/libraries";
 
 export const TECHNOLOGIES_KNOWN: TechnologiesUsed[] = [
   {
-    src: typescriptURL,
+    svg: typescriptURL,
     alt: "TypeScript",
     href: "https://www.typescriptlang.org/",
     knownLevel: 5,
     keyPoints: [],
   },
   {
-    src: angularURL,
+    svg: angularURL,
     alt: "Angular",
     href: "https://angular.io/",
     knownLevel: 4,
@@ -40,35 +40,35 @@ export const TECHNOLOGIES_KNOWN: TechnologiesUsed[] = [
   },
 
   {
-    src: csharpURL,
+    svg: csharpURL,
     alt: "C#",
     href: "https://docs.microsoft.com/en-us/dotnet/csharp/",
     knownLevel: 4,
     keyPoints: [],
   },
   {
-    src: unityURL,
+    svg: unityURL,
     alt: "Unity",
     href: "https://unity.com/",
     knownLevel: 4,
     keyPoints: [],
   },
   {
-    src: cURL,
+    svg: cURL,
     alt: "C",
     href: "https://en.wikipedia.org/wiki/C_(programming_language)",
     knownLevel: 4,
     keyPoints: [],
   },
   {
-    src: pythonURL,
+    svg: pythonURL,
     alt: "Python",
     href: "https://www.python.org/",
     knownLevel: 4,
     keyPoints: [],
   },
   {
-    src: linuxURL,
+    svg: linuxURL,
     alt: "Linux",
     href: "https://www.linux.org/",
     knownLevel: 4,
@@ -89,63 +89,63 @@ export const TECHNOLOGIES_KNOWN: TechnologiesUsed[] = [
   //   keypoints: [],
   // },
   {
-    src: javaURL,
+    svg: javaURL,
     alt: "Java",
     href: "https://www.java.com/en/",
     knownLevel: 3,
     keyPoints: [],
   },
   {
-    src: mongodbURL,
+    svg: mongodbURL,
     alt: "MongoDB",
     href: "https://www.mongodb.com/",
     knownLevel: 3,
     keyPoints: [],
   },
   {
-    src: dockerURL,
+    svg: dockerURL,
     alt: "Docker",
     href: "https://www.docker.com/",
     knownLevel: 3,
     keyPoints: [],
   },
   {
-    src: awsURL,
+    svg: awsURL,
     alt: "AWS",
     href: "https://aws.amazon.com/",
     knownLevel: 3,
     keyPoints: [],
   },
   {
-    src: gcloudURL,
+    svg: gcloudURL,
     alt: "Google Cloud",
     href: "https://cloud.google.com/",
     knownLevel: 3,
     keyPoints: [],
   },
   {
-    src: gitlabURL,
+    svg: gitlabURL,
     alt: "GitLab",
     href: "https://about.gitlab.com/",
     knownLevel: 3,
     keyPoints: [],
   },
   {
-    src: figmaURL,
+    svg: figmaURL,
     alt: "Figma",
     href: "https://www.figma.com/",
     knownLevel: 3,
     keyPoints: [],
   },
   {
-    src: cloudflareURL,
+    svg: cloudflareURL,
     alt: "Cloudflare",
     href: "https://www.cloudflare.com/",
     knownLevel: 3,
     keyPoints: [],
   },
   {
-    src: cppURL,
+    svg: cppURL,
     alt: "C++",
     href: "https://www.cplusplus.com/",
     knownLevel: 3,
@@ -153,28 +153,28 @@ export const TECHNOLOGIES_KNOWN: TechnologiesUsed[] = [
   },
 
   {
-    src: postgresqlURL,
+    svg: postgresqlURL,
     alt: "PostgreSQL",
     href: "https://www.postgresql.org/",
     knownLevel: 3,
     keyPoints: [],
   },
   {
-    src: remixURL,
+    svg: remixURL,
     alt: "Remix",
     href: "https://remix.run/",
     knownLevel: 2,
     keyPoints: [],
   },
   {
-    src: reactURL,
+    svg: reactURL,
     alt: "React",
     href: "https://reactjs.org/",
     knownLevel: 2,
     keyPoints: [],
   },
   {
-    src: tailWindURL,
+    svg: tailWindURL,
     alt: "Tailwind",
     href: "https://tailwindcss.com/",
     knownLevel: 2,

@@ -5,11 +5,11 @@ import SideNavPage from "~/components/side-nav";
 export const links: LinksFunction = () => {
   return [
     //{ rel: "preload", href: heroImageUrl },
-    ...TECHNOLOGIES_KNOWN.map(({ src }) => ({
-      rel: "preload",
-      href: src,
-      as: "image"
-    })),
+    // ...TECHNOLOGIES_KNOWN.map(({ src }) => ({
+    //   rel: "preload",
+    //   href: src,
+    //   as: "image"
+    // })),
   ];
 };
 
