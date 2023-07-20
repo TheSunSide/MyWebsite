@@ -6,6 +6,7 @@ import { TECHNOLOGIES_KNOWN } from "~/components/tech-desc";
 import type { TechnologiesUsed } from "~/types/libraries";
 import { projectsDesc } from "~/components/projects-desc";
 import { ProjectCard } from "~/components/project-card";
+import { Language, useLang } from "~/utils/lang-provider";
 
 export async function loader({ params }: LoaderArgs): Promise<TechnologiesUsed | undefined> {
   const techId = params.techId;
@@ -37,6 +38,7 @@ export default function ProjectPage() {
   const nav = useNavigate();
   const params = useParams();
   const techDesc = useLoaderData<TechnologiesUsed | undefined>();
+  const [lang] = useLang();
   if(!techDesc) {
     nav(Routes.project,{});
     console.log("ProjectPage Rendered - no techDesc -- trying to redirect")
@@ -48,7 +50,7 @@ export default function ProjectPage() {
       <a href={Routes.techStack}>
         <button type="button"  className="ml-1 mt-1 text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800">
           {getArrowSVG()}
-          See Technologies
+          {lang===Language.EN?"See Technologies":"Voir les technologies"}
         </button>
       </a>
       <h2 className="mx-auto mt-4 text-center text-2xl font-bold tracking-tight dark:text-white">
@@ -70,13 +72,13 @@ export default function ProjectPage() {
                 </li>)
             })}
         </ul>
-        <h3 className="dark:text-white">Used on these projects</h3>
-        <li className="mx-auto mt-4 flex flex-col flex-wrap items-center justify-center gap-4 sm:flex-row">
+        <h3 className="dark:text-white">{lang===Language.EN?"Used in these projects":"Utilisé dans ces projets"}</h3>
+        <div className="mx-auto pt-8 text-center overflow-y-auto max-h-fit grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-y-2 sm:flex-row w-fit">
           {projectsDesc.filter((projectDesc) => projectDesc.technologies.includes(techDesc.alt)).map((item) => {
             const projectLink = Routes.specificProject(item.link);
             return (ProjectCard({item, projectLink}));
             })}
-        </li>
+        </div>
       </section> 
     </section>
     

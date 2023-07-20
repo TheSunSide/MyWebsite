@@ -1,21 +1,21 @@
 import { json } from '@remix-run/cloudflare';
 import type { ActionFunction } from '@remix-run/cloudflare';
 import { getInfosSession } from '~/utils/cookies.server';
-import { isTheme } from '~/utils/theme-provider';
+import { isLang } from '~/utils/lang-provider';
 
 export const action: ActionFunction = async ({ request }) => {
-  const themeSession = await getInfosSession(request);
+  const langSession = await getInfosSession(request);
   const requestText = await request.text();
   const form = new URLSearchParams(requestText);
-  const theme = form.get('theme');
+  const lang = form.get('lang');
 
-  if (!isTheme(theme)) {
+  if (!isLang(lang)) {
     return json({
       success: false,
-      message: `theme value of ${theme} is not a valid theme`,
+      message: `theme value of ${lang} is not a valid theme`,
     });
   }
 
-  themeSession.setTheme(theme);
-  return json({ success: true }, { headers: { 'Set-Cookie': await themeSession.commit() } });
+  langSession.setLang(lang);
+  return json({ success: true }, { headers: { 'Set-Cookie': await langSession.commit() } });
 };

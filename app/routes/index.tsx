@@ -1,5 +1,6 @@
 import type { LinksFunction } from "@remix-run/cloudflare";
 import imageSunnee from "~/assets/sunnee.jpg"
+import { Language, useLang } from "~/utils/lang-provider";
 
 export const links: LinksFunction = () => {
   return [
@@ -9,6 +10,7 @@ export const links: LinksFunction = () => {
 };
 
 export default function Index() {
+  const [lang] = useLang();
   return (
       <div className="h-full">
           <h1 className="pt-8 text-center text-5xl font-extrabold uppercase tracking-tight text-purple-500 text-purple-700 drop-shadow-md">
@@ -20,25 +22,25 @@ export default function Index() {
               <li className="flex items-center space-x-3">
                 <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
                 <span>
-                  4th year Student at Polytechnique Montreal, in Software Engineering
+                  {lang === Language.EN?"4th year Student at Polytechnique Montreal, in Software Engineering":"Étudiant de 4e année à Polytechnique Montréal, en Génie Logiciel"}
                 </span>
               </li>
               <li className="flex items-center space-x-3">
                 <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
                 <span>
-                  Teaching Assistant for the course INF1900 - Introduction to embedded systems
+                  {lang === Language.EN?"Teaching Assistant for the course INF1900 - Introduction to embedded systems":"Chargé des travaux pratiques pour le cours INF1900 - Introduction aux systèmes embarqués"}
                 </span>
               </li>
               <li className="flex items-center space-x-3">
                 <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
                 <span>
-                  Vice president of the treasury for the student committee of Software Engineering at PolyMtl
+                {lang === Language.EN?"Vice president of the treasury for the student committee of Software Engineering at PolyMtl":"Vice-président aux finances du comité étudiant de Génie Logiciel à PolyMtl"}
                 </span>
               </li>
               <li className="flex items-center space-x-3">
                 <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
                 <span>
-                  Vice president of logistics for the CSGames 2024 for Polytechnique Montreal's team(s)
+                {lang === Language.EN?"Vice president of logistics for the CSGames 2024 for Polytechnique Montreal's team(s)":"Vice-président à la logistique pour les CSGames 2024 pour l'équipe de Polytechnique Montréal"}
                 </span>
               </li>
             </ul>

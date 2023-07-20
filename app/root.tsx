@@ -16,17 +16,20 @@ import type { Theme} from "./utils/theme-provider";
 import { NonFlashOfWrongThemeEls, ThemeProvider, useTheme } from "./utils/theme-provider";
 
 import type { LoaderFunction } from '@remix-run/cloudflare';
-import { getThemeSession } from './utils/theme.server';
+import type { Language } from "./utils/lang-provider";
+import { LangProvider } from "./utils/lang-provider";
+import { getInfosSession } from "./utils/cookies.server";
 
 export type LoaderData = {
   theme: Theme | null;
+  lang: Language | null;
 };
 
 export const loader: LoaderFunction = async ({ request }) => {
-  const themeSession = await getThemeSession(request);
-
+  const cookieSession = await getInfosSession(request);
   const data: LoaderData = {
-    theme: themeSession.getTheme(),
+    theme: cookieSession.getTheme(),
+    lang: cookieSession.getLang(),
   };
 
   return data;
@@ -68,8 +71,10 @@ export default function AppWithProviders() {
   const data = useLoaderData<LoaderData>();
 
   return (
-    <ThemeProvider specifiedTheme={data.theme}>
-      <App />
-    </ThemeProvider>
+    <LangProvider specifiedLang={data.lang}>
+      <ThemeProvider specifiedTheme={data.theme}>
+        <App />
+      </ThemeProvider>
+    </LangProvider>
   );
 }

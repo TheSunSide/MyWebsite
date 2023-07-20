@@ -6,6 +6,7 @@ import { useParams } from "@remix-run/react";
 import type { LoaderArgs} from "@remix-run/server-runtime";
 import { Routes } from "~/constants/routes";
 import { TECHNOLOGIES_KNOWN } from "~/components/tech-desc";
+import { Language, useLang } from "~/utils/lang-provider";
 
 export async function loader({ params }: LoaderArgs): Promise<ProjectDesc | undefined> {
   const projectId = params.projectId;
@@ -38,6 +39,7 @@ export default function ProjectPage() {
   const nav = useNavigate();
   const params = useParams();
   const projectDesc = useLoaderData<ProjectDesc | undefined>();
+  const [lang] = useLang();
   console.log("ProjectPage Rendered");
   if(!projectDesc) {
     console.log("ProjectPage Rendered - no projectDesc");
@@ -45,6 +47,7 @@ export default function ProjectPage() {
     nav(Routes.project,{});
     return null;
   }
+  const keyPoints = lang === Language.EN?projectDesc.keyPoints:projectDesc.FRkeyPoints;
 
   console.log(projectDesc)
   return (
@@ -52,15 +55,15 @@ export default function ProjectPage() {
       <a href={Routes.project}>
         <button type="button"  className="ml-1 mt-1 text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800">
           {getArrowSVG()}
-          See projects
+          {lang === Language.EN?"See projects":"Voir les projets"}
         </button>
       </a>
       <h1 className="font-bold z-10 mx-auto pt-8 text-center text-xl sm:text-2xl dark:text-white">
-      {projectDesc.name} - {projectDesc.year}
+      {lang === Language.EN?projectDesc.name:projectDesc.FRname} - {projectDesc.year}
       </h1>
       <section className="flex justify-center flex-col mx-auto mt-8 text-center">
         <ul className="mx-auto mb-8 space-y-4 text-gray-500 dark:text-gray-400">
-          { projectDesc.keyPoints.map((keyPoint, index) => 
+          { keyPoints.map((keyPoint, index) => 
             {
               return (
                 <li className="flex items-center space-x-3" key={projectDesc.name+index}>
@@ -69,7 +72,7 @@ export default function ProjectPage() {
                 </li>)
             })}
         </ul>
-        <h3 className="dark:text-white">Built using these</h3>
+        <h3 className="dark:text-white">{lang === Language.EN?"Built using these technologies":"Construit avec ces technologies"}</h3>
         <ul className="mx-auto mt-4 flex flex-col flex-wrap items-center justify-center gap-4 sm:flex-row">
           {
             projectDesc.technologies.filter((tech)=>TECHNOLOGIES_KNOWN.find( (item)=>item.alt === tech)).map((tech) => {
