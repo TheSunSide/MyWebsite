@@ -7,6 +7,7 @@ import type { LibrariesUsed } from "~/types/libraries";
 import { Routes } from "~/constants/routes";
 import githubSVG from "~/assets/github.svg";
 import { Theme, useTheme } from "~/utils/theme-provider";
+import { Language, useLang } from "~/utils/lang-provider";
 const LIBRARIES: LibrariesUsed[] = [
   {
     src: tailwindLogoUrl,
@@ -32,10 +33,11 @@ const LIBRARIES: LibrariesUsed[] = [
 
 export default function About() {
   const [theme] = useTheme()
+  const [lang] = useLang();
   return (
     <div className="h-full p-4 md:p-8">
       <h1 className="font-bold z-10 mx-auto pt-8 text-center text-xl sm:text-2xl dark:text-white">
-        This website is built and served using these
+        {lang===Language.EN?"This website is built and served using these technologies":"Ce site web est construit et servi en utilisant ces technologies"} 
       </h1>
       <ul className="mx-auto mt-4 flex flex-col flex-wrap items-center justify-center gap-4 sm:flex-row">
         {LIBRARIES.map(({ src, alt, href }) => (
@@ -52,7 +54,9 @@ export default function About() {
           </li>
         ))}
       </ul>
-      <h1 className="font-bold z-10 mx-auto pt-8 text-center text-xl sm:text-2xl mt-4 dark:text-white">Available on a public Github Repo</h1>
+      <h1 className="font-bold z-10 mx-auto pt-8 text-center text-xl sm:text-2xl mt-4 dark:text-white">
+        {lang===Language.EN?"Available on a public Github Repo":"Disponible sur un repo Github public"} 
+      </h1>
       
       <a href="https://github.com/TheSunSide/MyWebsite" className="mx-auto flex h-16 w-32 mt-2">
         {/* <img src={githubSVG} alt="gitIcon" className="h-full w-full fill-current" /> */}
