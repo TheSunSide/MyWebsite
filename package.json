@@ -15,7 +15,7 @@
     "test:watch": "vitest",
     "typecheck": "tsc -b",
     "validate": "run-p test lint typecheck check",
-    "wrangler": "wrangler pages dev ./public"
+    "wrangler": "wrangler pages dev ./public --live-reload"
   },
   "prettier": {},
   "eslintIgnore": [
