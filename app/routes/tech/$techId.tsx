@@ -7,6 +7,7 @@ import type { TechnologiesUsed } from "~/types/libraries";
 import { projectsDesc } from "~/components/projects-desc";
 import { ProjectCard } from "~/components/project-card";
 import { Language, useLang } from "~/utils/lang-provider";
+import clsx from "clsx";
 
 export async function loader({ params }: LoaderArgs): Promise<TechnologiesUsed | undefined> {
   const techId = params.techId;
@@ -34,16 +35,18 @@ function getArrowSVG() {
   </svg>);
 }
 
-export default function ProjectPage() {
+export default function TechPage() {
   const nav = useNavigate();
   const params = useParams();
   const techDesc = useLoaderData<TechnologiesUsed | undefined>();
   const [lang] = useLang();
   if(!techDesc) {
     nav(Routes.project,{});
-    console.log("ProjectPage Rendered - no techDesc -- trying to redirect")
+    console.log("TechPage Rendered - no techDesc -- trying to redirect")
     return null;
   }
+
+  const projects = projectsDesc.filter((projectDesc) => projectDesc.technologies.includes(techDesc.alt));
 
   return (
     <section className="h-full">
@@ -74,9 +77,9 @@ export default function ProjectPage() {
         </ul>
         <h3 className="dark:text-white">{lang===Language.EN?"Used in these projects":"Utilisé dans ces projets"}</h3>
         <div className="flex flex-wrap flex-row mx-auto pt-8 text-center overflow-y-auto max-h-fit gap-y-6 w-fit justify-center">
-          {projectsDesc.filter((projectDesc) => projectDesc.technologies.includes(techDesc.alt)).map((item) => {
+          {projects.map((item) => {
             const projectLink = Routes.specificProject(item.link);
-            return (<div className="w-full lg:w-1/2 xl:w-1/3">
+            return (<div className={clsx(projects.length===1?"w-fit":"w-full lg:w-1/2 xl:w-1/3")} >
               {ProjectCard({item, projectLink})}
             </div>);
             })}

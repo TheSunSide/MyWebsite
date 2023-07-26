@@ -27,14 +27,14 @@ Done automatically with Cloudflare pages' branch management
 - [x] Dark mode
 - [x] French English switch
 - [x] Cookies
+- [x] Socials
 
 ## TODO
 - [ ] Fix hot reload
 - [ ] Custom 404
 - [ ] Custom Domain
-- [ ] Add socials / Contact page
 - [ ] Verify scaling on mobile / tablet / small screens
-- [ ] Grids in with the last ones not centered /tech/$techId
-- [ ] Make the static assets part of Cloudflare pages (Since we dont want 1 Function call per svg...)
+- [ ] Make the static assets part of Cloudflare pages (Since we don't want 1 Function call per svg...)
 
-
+## Done
+- [x] Grids in with the last ones not centered /tech/$techId
