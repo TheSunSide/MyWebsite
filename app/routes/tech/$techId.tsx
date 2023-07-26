@@ -73,10 +73,12 @@ export default function ProjectPage() {
             })}
         </ul>
         <h3 className="dark:text-white">{lang===Language.EN?"Used in these projects":"Utilisé dans ces projets"}</h3>
-        <div className="mx-auto pt-8 text-center overflow-y-auto max-h-fit grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-y-2 sm:flex-row w-fit">
+        <div className="flex flex-wrap flex-row mx-auto pt-8 text-center overflow-y-auto max-h-fit gap-y-6 w-fit justify-center">
           {projectsDesc.filter((projectDesc) => projectDesc.technologies.includes(techDesc.alt)).map((item) => {
             const projectLink = Routes.specificProject(item.link);
-            return (ProjectCard({item, projectLink}));
+            return (<div className="w-full lg:w-1/2 xl:w-1/3">
+              {ProjectCard({item, projectLink})}
+            </div>);
             })}
         </div>
       </section> 

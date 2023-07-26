@@ -39,12 +39,12 @@ export default function About() {
       <h1 className="font-bold z-10 mx-auto pt-8 text-center text-xl sm:text-2xl dark:text-white">
         {lang===Language.EN?"This website is built and served using these technologies":"Ce site web est construit et servi en utilisant ces technologies"} 
       </h1>
-      <ul className="mx-auto mt-4 flex flex-col flex-wrap items-center justify-center gap-4 sm:flex-row">
+      <ul className="mx-auto mt-4 flex flex-col flex-wrap items-center justify-center gap-8 sm:flex-row">
         {LIBRARIES.map(({ src, alt, href }) => (
           <li key={href} className="">
             <a
               href={Routes.specificTech(alt)}
-              className="flex h-16 w-32 grayscale transition hover:grayscale-0 focus:grayscale-0"
+              className="flex h-16 w-auto grayscale transition hover:grayscale-0 focus:grayscale-0"
             >
               <div className="px-2 py-2 dark:bg-gray-50 rounded-lg mx-auto">
                 <img src={src} alt="" className="h-full w-full" />

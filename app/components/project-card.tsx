@@ -1,10 +1,10 @@
 import { Language, useLang } from "~/utils/lang-provider";
 import type { ProjectDesc } from "./projects-desc";
 
-export function ProjectCard({item, projectLink}: {item: ProjectDesc, projectLink: string}) {
+export function ProjectCard({item, projectLink}: {item: ProjectDesc, projectLink: string, width?:string}) {
   const [lang] = useLang();
   return (
-    <div key={item.name} className="grid grid-cols-1 content-between justify-items-center mx-auto mt-2 w-4/5 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div key={item.name} className={`grid grid-cols-1 content-between justify-items-center mx-auto w-4/5 h-full p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700`}>
       <a href={projectLink}>
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{lang === Language.EN?item.name:item.FRname}</h5>
       </a>

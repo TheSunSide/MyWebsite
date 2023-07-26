@@ -16,7 +16,7 @@ export const links: LinksFunction = () => {
 
 export function TechList() {
   return (
-  <ul className="mx-auto pt-4 grid xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 grid-cols-1 gap-4 w-3/4 overflow-y-auto no-scrollbar dark:text-white">
+  <ul className="mx-auto pt-4 grid xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 grid-cols-1 gap-y-4 gap-x-8 w-3/4 overflow-y-auto no-scrollbar dark:text-white">
     {TECHNOLOGIES_KNOWN.map((tech) => (
       techComponent(tech)
     ))}

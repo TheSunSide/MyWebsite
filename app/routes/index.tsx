@@ -1,5 +1,7 @@
 import type { LinksFunction } from "@remix-run/cloudflare";
+import { SocialIcon } from "react-social-icons";
 import imageSunnee from "~/assets/sunnee.jpg"
+import ButtonMailto from "~/components/mail-to";
 import { Language, useLang } from "~/utils/lang-provider";
 
 export const links: LinksFunction = () => {
@@ -13,7 +15,7 @@ export default function Index() {
   const [lang] = useLang();
   return (
       <div className="h-full">
-          <h1 className="pt-8 text-center text-5xl font-extrabold uppercase tracking-tight text-purple-500 text-purple-700 drop-shadow-md">
+          <h1 className="pt-8 text-center text-5xl font-extrabold uppercase tracking-tight dark:text-purple-500 text-purple-700 drop-shadow-md">
             Sunnee Chevalier's Website
           </h1>
           <section className="mt-4 flex flex-col justify-center items-center">
@@ -44,6 +46,17 @@ export default function Index() {
                 </span>
               </li>
             </ul>
+          </section>
+
+          <section className="mt-4 flex flex-col justify-center items-center">
+            <h2 className="text-2xl font-bold uppercase tracking-tight dark:text-purple-500 text-purple-700 drop-shadow-md">
+              Contact / Socials
+            </h2>
+            <div className="flex align-center mt-4 mb-8 gap-x-2 text-left text-gray-500 dark:text-black px-2 py-2 items-center bg-white border border-gray-200 dark:bg-gray-100 rounded-lg">
+                <SocialIcon url="mailto:sunnee17@me.com"/>
+                <SocialIcon url="https://www.linkedin.com/in/sunnee-c/"/>
+                <SocialIcon url="https://github.com/TheSunSide"/>
+            </div>
           </section>
       </div>
   );
