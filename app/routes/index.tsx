@@ -1,7 +1,6 @@
 import type { LinksFunction } from "@remix-run/cloudflare";
 import { SocialIcon } from "react-social-icons";
 import imageSunnee from "~/assets/sunnee.jpg"
-import ButtonMailto from "~/components/mail-to";
 import { Language, useLang } from "~/utils/lang-provider";
 
 export const links: LinksFunction = () => {
