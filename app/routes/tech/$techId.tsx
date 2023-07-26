@@ -2,9 +2,9 @@ import { useLoaderData, useNavigate } from "@remix-run/react";
 import { useParams } from "@remix-run/react";
 import type { LoaderArgs} from "@remix-run/server-runtime";
 import { Routes } from "~/constants/routes";
-import { TECHNOLOGIES_KNOWN } from "~/components/tech-desc";
+import { TECHNOLOGIES_KNOWN } from "~/data/tech-desc";
 import type { TechnologiesUsed } from "~/types/libraries";
-import { projectsDesc } from "~/components/projects-desc";
+import { projectsDesc } from "~/data/projects-desc";
 import { ProjectCard } from "~/components/project-card";
 import { Language, useLang } from "~/utils/lang-provider";
 import clsx from "clsx";
@@ -79,8 +79,9 @@ export default function TechPage() {
         <div className="flex flex-wrap flex-row mx-auto pt-8 text-center overflow-y-auto max-h-fit gap-y-6 w-fit justify-center">
           {projects.map((item) => {
             const projectLink = Routes.specificProject(item.link);
-            return (<div className={clsx(projects.length===1?"w-fit":"w-full lg:w-1/2 xl:w-1/3")} >
-              {ProjectCard({item, projectLink})}
+            return (
+            <div className={clsx(projects.length===1?"w-fit":"w-full lg:w-1/2 xl:w-1/3")} >
+              {<ProjectCard item={item} projectLink={projectLink} key={item.name} />}
             </div>);
             })}
         </div>

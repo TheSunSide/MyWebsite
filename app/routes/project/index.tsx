@@ -1,5 +1,5 @@
-import type { ProjectDesc} from "~/components/projects-desc";
-import { projectsDesc } from "~/components/projects-desc";
+import type { ProjectDesc} from "~/data/projects-desc";
+import { projectsDesc } from "~/data/projects-desc";
 import { Routes } from "~/constants/routes";
 import { ProjectCard } from "~/components/project-card";
 import { useLang } from "~/utils/lang-provider";

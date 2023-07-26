@@ -1,5 +1,5 @@
-import { techComponent } from "~/components/tech.component";
-import { TECHNOLOGIES_KNOWN } from "~/components/tech-desc";
+import { TechComponent } from "~/components/tech.component";
+import { TECHNOLOGIES_KNOWN } from "~/data/tech-desc";
 import type { LinksFunction } from "@remix-run/cloudflare"
 import SideNavPage from "~/components/side-nav";
 import { Language, useLang } from "~/utils/lang-provider";
@@ -18,7 +18,8 @@ export function TechList() {
   return (
   <ul className="mx-auto pt-4 grid xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 grid-cols-1 gap-y-4 gap-x-8 w-3/4 overflow-y-auto no-scrollbar dark:text-white">
     {TECHNOLOGIES_KNOWN.map((tech) => (
-      techComponent(tech)
+      <TechComponent key={tech.alt} tech={tech}/>
+      
     ))}
   </ul>);
 }

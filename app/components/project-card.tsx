@@ -1,5 +1,6 @@
 import { Language, useLang } from "~/utils/lang-provider";
-import type { ProjectDesc } from "./projects-desc";
+import type { ProjectDesc } from "../data/projects-desc";
+import React from "react";
 
 export function ProjectCard({item, projectLink}: {item: ProjectDesc, projectLink: string, width?:string}) {
   const [lang] = useLang();

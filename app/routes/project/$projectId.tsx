@@ -1,11 +1,11 @@
 import { useLoaderData, useNavigate } from "@remix-run/react";
 import SideNavPage from "~/components/side-nav"
-import type { ProjectDesc} from "~/components/projects-desc";
-import { projectsDesc } from "~/components/projects-desc";
+import type { ProjectDesc} from "~/data/projects-desc";
+import { projectsDesc } from "~/data/projects-desc";
 import { useParams } from "@remix-run/react";
 import type { LoaderArgs} from "@remix-run/server-runtime";
 import { Routes } from "~/constants/routes";
-import { TECHNOLOGIES_KNOWN } from "~/components/tech-desc";
+import { TECHNOLOGIES_KNOWN } from "~/data/tech-desc";
 import { Language, useLang } from "~/utils/lang-provider";
 
 export async function loader({ params }: LoaderArgs): Promise<ProjectDesc | undefined> {
