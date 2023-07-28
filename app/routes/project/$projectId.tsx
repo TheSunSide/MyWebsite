@@ -7,6 +7,7 @@ import type { LoaderArgs} from "@remix-run/server-runtime";
 import { Routes } from "~/constants/routes";
 import { TECHNOLOGIES_KNOWN } from "~/data/tech-desc";
 import { Language, useLang } from "~/utils/lang-provider";
+import { Carousel, CarouselProps, FlowbiteCarouselScrollContainer } from "flowbite-react";
 
 export async function loader({ params }: LoaderArgs): Promise<ProjectDesc | undefined> {
   const projectId = params.projectId;
@@ -35,6 +36,25 @@ function getArrowSVG() {
   </svg>);
 }
 
+function getCarrousel(lang:Language, scrollContainerTheme: FlowbiteCarouselScrollContainer,images:string[]) {
+  return (
+    <>
+     <section className="flex flex-col mx-auto mt-8 text-center h-fit items-center w-full">
+        <h3 className="dark:text-white">{lang === Language.EN?"Image Gallery":"Gallerie d'image"}</h3>
+        <div className="h-56 lg:h-72 xl:h-90 w-1/2 no-scrollbar">
+          <Carousel className="no-scrollbar" theme={{scrollContainer:scrollContainerTheme}}>
+            {images.map((image) => (<img
+              alt="..."
+              src={image}
+              className="h-full object-fit"
+            />))}
+          </Carousel>
+        </div>
+      </section>
+    </>
+  )
+}
+
 export default function ProjectPage() {
   const nav = useNavigate();
   const params = useParams();
@@ -43,15 +63,16 @@ export default function ProjectPage() {
   console.log("ProjectPage Rendered");
   if(!projectDesc) {
     console.log("ProjectPage Rendered - no projectDesc");
-    
     nav(Routes.project,{});
     return null;
   }
   const keyPoints = lang === Language.EN?projectDesc.keyPoints:projectDesc.FRkeyPoints;
+  const scrollContainerTheme: FlowbiteCarouselScrollContainer= {base: 'flex h-full snap-mandatory overflow-y-hidden overflow-x-scroll scroll-smooth rounded-lg no-scrollbar',snap: 'snap-x',};
 
-  console.log(projectDesc)
+  const carousel = projectDesc.images ? getCarrousel(lang===Language.EN?Language.EN:Language.FR, scrollContainerTheme,projectDesc.images):undefined;
+
   return (
-    <section className="h-full">
+    <div className="h-full">
       <a href={Routes.project}>
         <button type="button"  className="ml-1 mt-1 text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800">
           {getArrowSVG()}
@@ -90,8 +111,7 @@ export default function ProjectPage() {
             </li>)
           })}
         </ul>
-      </section> 
-    </section>
-    
-  );
+      </section>
+      {carousel}
+    </div>);
 }

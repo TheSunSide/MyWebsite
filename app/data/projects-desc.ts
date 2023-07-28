@@ -1,3 +1,10 @@
+import scrabble1 from "../assets/scrabble1-0.png";
+import scrabble2 from "../assets/scrabble1-1.png";
+import scrabble3 from "../assets/scrabble1-2.png";
+import scrabble4 from "../assets/scrabble2-0.png";
+import scrabble5 from "../assets/scrabble2-1.png";
+import scrabble6 from "../assets/scrabble2-2.png";
+
 export type ProjectDesc = {
   name: string;
   year: string;
@@ -6,6 +13,7 @@ export type ProjectDesc = {
   FRname: string;
   technologies: string[];
   link: string;
+  images?: string[];
 };
 export const projectsDesc: ProjectDesc[] = [
   {
@@ -96,6 +104,7 @@ export const projectsDesc: ProjectDesc[] = [
       "GitLab",
     ],
     link: "/scrabble",
+    images: [scrabble1, scrabble2, scrabble3],
   },
   {
     name: "Teaching assistant",
@@ -174,6 +183,7 @@ export const projectsDesc: ProjectDesc[] = [
       "GitLab",
     ],
     link: "/evolution",
+    images: [scrabble4, scrabble5, scrabble6],
   },
   {
     name: "Personal website",
