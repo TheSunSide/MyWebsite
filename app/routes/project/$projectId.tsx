@@ -97,7 +97,7 @@ export default function ProjectPage() {
                 </li>)
             })}
         </ul>
-        <h3 className="dark:text-white">{lang === Language.EN?"Built using these technologies":"Construit avec ces technologies"}</h3>
+        <h3 className="dark:text-white">{lang === Language.EN?"Using these technologies":"Utilise ces technologies"}</h3>
         <ul className="mx-auto mt-4 flex flex-col flex-wrap items-center justify-center gap-4 sm:flex-row">
           {
             projectDesc.technologies.filter((tech)=>TECHNOLOGIES_KNOWN.find( (item)=>item.alt === tech)).map((tech) => {
