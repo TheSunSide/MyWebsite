@@ -51,7 +51,7 @@ export default function Index() {
             <h2 className="text-2xl font-bold uppercase tracking-tight dark:text-purple-500 text-purple-700 drop-shadow-md">
               Contact / Socials
             </h2>
-            <div className="flex align-center mt-4 mb-8 gap-x-2 text-left text-gray-500 dark:text-black px-2 py-2 items-center bg-white border border-gray-200 dark:bg-gray-100 rounded-lg">
+            <div className="flex align-center mt-4 gap-x-2 text-left text-gray-500 dark:text-black px-2 py-2 items-center bg-white border border-gray-200 dark:bg-gray-100 rounded-lg">
                 <SocialIcon url="mailto:sunnee17@me.com"/>
                 <SocialIcon url="https://www.linkedin.com/in/sunnee-c/"/>
                 <SocialIcon url="https://github.com/TheSunSide"/>

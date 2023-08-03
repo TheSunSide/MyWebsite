@@ -37,16 +37,20 @@ function getArrowSVG() {
 }
 
 function getCarrousel(lang:Language, scrollContainerTheme: FlowbiteCarouselScrollContainer,images:string[]) {
+  // const control= {
+  //   base: 'inline-flex h-8 w-8 items-center justify-center rounded-full bg-red/30 group-hover:bg-red/50 group-focus:outline-none group-focus:ring-4 group-focus:ring-red dark:bg-red-800/30 dark:group-hover:bg-red-800/60 dark:group-focus:ring-red-800/70 sm:h-10 sm:w-10',
+  //   icon: 'h-5 w-5 text-red dark:text-red-800 sm:h-6 sm:w-6',
+  // };
   return (
     <>
      <section className="flex flex-col mx-auto mt-8 text-center h-fit items-center w-full">
         <h3 className="dark:text-white">{lang === Language.EN?"Image Gallery":"Gallerie d'image"}</h3>
         <div className="h-56 lg:h-72 xl:h-90 w-1/2 no-scrollbar">
-          <Carousel className="no-scrollbar" theme={{scrollContainer:scrollContainerTheme}}>
+          <Carousel className="no-scrollbar" theme={{scrollContainer:scrollContainerTheme/*, control*/}}>
             {images.map((image) => (<img
               alt="..."
               src={image}
-              className="h-full object-fit"
+              className="h-full object-contain"
             />))}
           </Carousel>
         </div>
