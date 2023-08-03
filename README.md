@@ -34,7 +34,8 @@ Done automatically with Cloudflare pages' branch management
 - [ ] Custom 404
 - [ ] Custom Domain
 - [ ] Verify scaling on mobile / tablet / small screens
-- [ ] Make the static assets part of Cloudflare pages (Since we don't want 1 Function call per svg...)
+- [ ] Verify if the static assets are a part of Cloudflare pages' and not the functions
+- [ ] Fix the theming on the projects page's Carousel
 
 ## Done
 - [x] Grids in with the last ones not centered /tech/$techId

@@ -1,3 +1,10 @@
+import scrabble1 from "../assets/scrabble1-0.png";
+import scrabble2 from "../assets/scrabble1-1.png";
+import scrabble3 from "../assets/scrabble1-2.png";
+import scrabble4 from "../assets/scrabble2-0.png";
+import scrabble5 from "../assets/scrabble2-1.png";
+import scrabble6 from "../assets/scrabble2-2.png";
+
 export type ProjectDesc = {
   name: string;
   year: string;
@@ -6,6 +13,7 @@ export type ProjectDesc = {
   FRname: string;
   technologies: string[];
   link: string;
+  images?: string[];
 };
 export const projectsDesc: ProjectDesc[] = [
   {
@@ -96,6 +104,7 @@ export const projectsDesc: ProjectDesc[] = [
       "GitLab",
     ],
     link: "/scrabble",
+    images: [scrabble1, scrabble2, scrabble3],
   },
   {
     name: "Teaching assistant",
@@ -174,6 +183,34 @@ export const projectsDesc: ProjectDesc[] = [
       "GitLab",
     ],
     link: "/evolution",
+    images: [scrabble4, scrabble5, scrabble6],
+  },
+  {
+    name: "CS Games - Atlantis",
+    FRname: "CS Games - Atlantis",
+    year: "2023",
+    keyPoints: [
+      "Part of the Polytechnique Montreal's team for the CS Games 2023",
+      "The CS Games is a competition between universities in Canada and the United States",
+      "I participated in the security challenge",
+      "I had to find vulnerabilities in a web application, and to exploit them to get the flag, with SQL injection, XSS, and more",
+      "I had to find a flag in an image file using steganography",
+      "I also participated in the relay programming challenge",
+      "I had to write a program that would solve a problem, and to pass it to the next person in the relay",
+      "And I participated in the mobile app challenge using Maui (C#)",
+    ],
+    FRkeyPoints: [
+      "Partie de l'équipe de Polytechnique Montreal pour les CS Games 2023",
+      "Les CS Games sont une compétition entre les universités du Canada et des États-Unis",
+      "J'ai participé au défi de sécurité",
+      "J'ai dû trouver des vulnérabilités dans une application web, et les exploiter pour obtenir le flag, avec de l'injection SQL, XSS, et plus",
+      "J'ai dû trouver un flag dans un fichier image en utilisant de la stéganographie",
+      "J'ai aussi participé au défi de programmation en relais",
+      "J'ai dû écrire un programme qui résoudrait un problème, et le passer à la personne suivante dans le relais",
+      "Et j'ai participé au défi d'application mobile en utilisant Maui (C#)",
+    ],
+    technologies: ["C#", "Python", "C++", "Linux"],
+    link: "/csgames2023",
   },
   {
     name: "Personal website",
