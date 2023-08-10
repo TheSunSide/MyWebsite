@@ -35,7 +35,7 @@ export default function About() {
   const [theme] = useTheme()
   const [lang] = useLang();
   return (
-    <div className="h-full p-4 md:p-8">
+    <div className="h-full p-4 md:p-8 overflow-y-auto">
       <h1 className="font-bold z-10 mx-auto pt-8 text-center text-xl sm:text-2xl dark:text-white">
         {lang===Language.EN?"This website is built and served using these technologies":"Ce site web est construit et servi en utilisant ces technologies"} 
       </h1>

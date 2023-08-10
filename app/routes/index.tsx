@@ -13,7 +13,7 @@ export const links: LinksFunction = () => {
 export default function Index() {
   const [lang] = useLang();
   return (
-      <div className="h-full">
+      <div className="h-full overflow-y-auto">
           <h1 className="pt-8 text-center text-5xl font-extrabold uppercase tracking-tight dark:text-purple-500 text-purple-700 drop-shadow-md">
             Sunnee Chevalier's Website
           </h1>

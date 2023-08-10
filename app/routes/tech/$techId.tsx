@@ -49,7 +49,7 @@ export default function TechPage() {
   const projects = projectsDesc.filter((projectDesc) => projectDesc.technologies.includes(techDesc.alt));
 
   return (
-    <section className="h-full">
+    <section className="h-full overflow-y-auto">
       <a href={Routes.techStack}>
         <button type="button"  className="ml-1 mt-1 text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800">
           {getArrowSVG()}
