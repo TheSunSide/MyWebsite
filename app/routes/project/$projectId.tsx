@@ -45,7 +45,7 @@ function getCarrousel(lang:Language, scrollContainerTheme: FlowbiteCarouselScrol
     <>
      <section className="flex flex-col mx-auto mt-8 text-center h-fit items-center w-full">
         <h3 className="dark:text-white">{lang === Language.EN?"Image Gallery":"Gallerie d'image"}</h3>
-        <div className="h-56 lg:h-72 xl:h-90 w-1/2 no-scrollbar">
+        <div className="h-56 lg:h-72 xl:h-90 w-3/4 xl:w-1/2 no-scrollbar">
           <Carousel className="no-scrollbar" theme={{scrollContainer:scrollContainerTheme/*, control*/}}>
             {images.map((image) => (<img
               alt="..."
@@ -76,7 +76,7 @@ export default function ProjectPage() {
   const carousel = projectDesc.images ? getCarrousel(lang===Language.EN?Language.EN:Language.FR, scrollContainerTheme,projectDesc.images):undefined;
 
   return (
-    <div className="h-full">
+    <div className="h-full flex flex-col overflow-auto">
       <a href={Routes.project}>
         <button type="button"  className="ml-1 mt-1 text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800">
           {getArrowSVG()}
