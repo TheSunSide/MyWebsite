@@ -1,4 +1,4 @@
-import { useLoaderData, useNavigate } from "@remix-run/react";
+import { Link, useLoaderData, useNavigate } from "@remix-run/react";
 import SideNavPage from "~/components/side-nav"
 import type { ProjectDesc} from "~/data/projects-desc";
 import { projectsDesc } from "~/data/projects-desc";
@@ -77,12 +77,12 @@ export default function ProjectPage() {
 
   return (
     <div className="h-full flex flex-col overflow-auto">
-      <a href={Routes.project}>
+      <Link to={Routes.project}>
         <button type="button"  className="ml-1 mt-1 text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800">
           {getArrowSVG()}
           {lang === Language.EN?"See projects":"Voir les projets"}
         </button>
-      </a>
+      </Link>
       <h1 className="font-bold z-10 mx-auto pt-8 text-center text-xl sm:text-2xl dark:text-white">
       {lang === Language.EN?projectDesc.name:projectDesc.FRname} - {projectDesc.year}
       </h1>
@@ -104,14 +104,14 @@ export default function ProjectPage() {
             const techKnown = TECHNOLOGIES_KNOWN.find( (item)=>item.alt === tech);
             return (
             <li key={techKnown!.href} className="">
-              <a
-                href={Routes.specificTech(techKnown!.alt)}
+              <Link
+                to={Routes.specificTech(techKnown!.alt)}
                 className="flex h-16 w-32  grayscale transition hover:grayscale-0 focus:grayscale-0"
               >
                 <div className="px-2 py-2 dark:bg-gray-50 rounded-lg mx-auto">
                   <img src={techKnown!.src} alt="" className="h-full w-full" />
                 </div>
-              </a>
+              </Link>
             </li>)
           })}
         </ul>

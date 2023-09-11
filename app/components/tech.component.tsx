@@ -1,3 +1,4 @@
+import { Link } from "@remix-run/react";
 import { ReactNode } from "react";
 import { Routes } from "~/constants/routes";
 import type { TechnologiesUsed } from "~/types/libraries";
@@ -20,7 +21,7 @@ function renderStars(num: number, key: string) {
 export function TechComponent({tech}:{tech:TechnologiesUsed}) {
   return (
     <li key={tech.alt} className="py-2 h-full">
-      <a href={Routes.specificTech(tech.alt)} className="px-2 py-2 h-full flex items-center bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-700  rounded-lg shadow flex-row md:max-w-xl hover:bg-gray-100">
+      <Link to={Routes.specificTech(tech.alt)} className="px-2 py-2 h-full flex items-center bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-700  rounded-lg shadow flex-row md:max-w-xl hover:bg-gray-100">
         <div className="px-2 py-2 dark:bg-gray-50 rounded-lg">
           <img className="object-scale-down h-auto xl:w-20 lg:w-12 w-12 " src={tech.src} alt=""/>
         </div>
@@ -28,7 +29,7 @@ export function TechComponent({tech}:{tech:TechnologiesUsed}) {
             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{tech.alt}</h5>
             {renderStars(tech.knownLevel, tech.alt)}
         </div>
-      </a>
+      </Link>
     </li>
   )
 }

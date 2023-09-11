@@ -1,4 +1,4 @@
-import { useLoaderData, useNavigate } from "@remix-run/react";
+import { Link, useLoaderData, useNavigate } from "@remix-run/react";
 import { useParams } from "@remix-run/react";
 import type { LoaderArgs} from "@remix-run/server-runtime";
 import { Routes } from "~/constants/routes";
@@ -50,12 +50,12 @@ export default function TechPage() {
 
   return (
     <section className="h-full overflow-y-auto">
-      <a href={Routes.techStack}>
+      <Link to={Routes.techStack}>
         <button type="button"  className="ml-1 mt-1 text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800">
           {getArrowSVG()}
           {lang===Language.EN?"See Technologies":"Voir les technologies"}
         </button>
-      </a>
+      </Link>
       <h2 className="mx-auto mt-4 text-center text-2xl font-bold tracking-tight dark:text-white">
       {techDesc.alt}
       </h2>
