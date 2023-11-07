@@ -8,6 +8,7 @@ import pythonURL from "../assets/python.svg";
 //import javascriptURL from "../assets/javascript.svg";
 // import nodejsURL from "../assets/nodejs.svg";
 // import expressURL from "../assets/express.svg";
+import rustURL from "../assets/rust.svg";
 import postgresqlURL from "../assets/postgresql.svg";
 import mongodbURL from "../assets/mongo.svg";
 import dockerURL from "../assets/docker.svg";
@@ -42,6 +43,7 @@ export const TECHNOLOGIES_KNOWN: TechnologiesUsed[] = [
   {
     src: csharpURL,
     alt: "C#",
+    alt2: "CSharp",
     href: "https://docs.microsoft.com/en-us/dotnet/csharp/",
     knownLevel: 4,
     keyPoints: [],
@@ -156,6 +158,13 @@ export const TECHNOLOGIES_KNOWN: TechnologiesUsed[] = [
     src: postgresqlURL,
     alt: "PostgreSQL",
     href: "https://www.postgresql.org/",
+    knownLevel: 3,
+    keyPoints: [],
+  },
+  {
+    src: rustURL,
+    alt: "Rust",
+    href: "https://www.rust-lang.org/",
     knownLevel: 3,
     keyPoints: [],
   },

@@ -21,7 +21,7 @@ function renderStars(num: number, key: string) {
 export function TechComponent({tech}:{tech:TechnologiesUsed}) {
   return (
     <li key={tech.alt} className="py-2 h-full">
-      <Link to={Routes.specificTech(tech.alt)} className="px-2 py-2 h-full flex items-center bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-700  rounded-lg shadow flex-row md:max-w-xl hover:bg-gray-100">
+      <Link to={Routes.specificTech(tech.alt2? tech.alt2: tech.alt)} className="px-2 py-2 h-full flex items-center bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-700  rounded-lg shadow flex-row md:max-w-xl hover:bg-gray-100">
         <div className="px-2 py-2 dark:bg-gray-50 rounded-lg">
           <img className="object-scale-down h-auto xl:w-20 lg:w-12 w-12 " src={tech.src} alt=""/>
         </div>

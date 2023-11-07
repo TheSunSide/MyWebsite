@@ -1,6 +1,8 @@
 import { Link } from '@remix-run/react';
+import clsx from 'clsx';
 import type { SidebarProps} from 'flowbite-react';
 import { Sidebar } from 'flowbite-react'
+import React from 'react';
 import { Routes } from '~/constants/routes'
 import { Language, useLang } from '~/utils/lang-provider';
 import { Theme, useTheme } from '~/utils/theme-provider';
@@ -8,6 +10,7 @@ import { Theme, useTheme } from '~/utils/theme-provider';
 export default function SideNavPage({children}: {children: JSX.Element}) {
   const [theme, setTheme] = useTheme();
   const [lang, setLang] = useLang();
+  const [isCollapsed, setIsCollapsed] = React.useState(false);
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT));
     console.log("toggleTheme");
@@ -18,68 +21,68 @@ export default function SideNavPage({children}: {children: JSX.Element}) {
   };
 
  const sidebarTheme: SidebarProps["theme"] = {
-  "root": {
-    "base": "h-full",
-    "collapsed": {
-      "on": "w-16",
-      "off": "w-64"
+    "root": {
+      "base": "h-full",
+      "collapsed": {
+        "on": "w-16",
+        "off": "w-64"
+      },
+      "inner": "h-full overflow-y-auto overflow-x-hidden rounded bg-gray-100 py-4 px-3 dark:bg-gray-800"
     },
-    "inner": "h-full overflow-y-auto overflow-x-hidden rounded bg-gray-100 py-4 px-3 dark:bg-gray-800"
-  },
-  "collapse": {
-    "button": "group flex w-full items-center rounded-lg p-2 text-base font-normal text-gray-900 transition duration-75 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700",
-    "icon": {
-      "base": "h-6 w-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white",
-      "open": {
-        "off": "",
-        "on": "text-gray-900"
+    "collapse": {
+      "button": "group flex w-full items-center rounded-lg p-2 text-base font-normal text-gray-900 transition duration-75 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700",
+      "icon": {
+        "base": "h-6 w-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white",
+        "open": {
+          "off": "",
+          "on": "text-gray-900"
+        }
+      },
+      "label": {
+        "base": "ml-3 flex-1 whitespace-nowrap text-left",
+        "icon": "h-6 w-6"
+      },
+      "list": "space-y-2 py-2"
+    },
+    "cta": {
+      "base": "mt-6 rounded-lg p-4 bg-gray-100 dark:bg-gray-700",
+      "color": {
+        "blue": "bg-cyan-50 dark:bg-cyan-900",
+        "dark": "bg-dark-50 dark:bg-dark-900",
+        "failure": "bg-red-50 dark:bg-red-900",
+        "gray": "bg-alternative-50 dark:bg-alternative-900",
+        "green": "bg-green-50 dark:bg-green-900",
+        "light": "bg-light-50 dark:bg-light-900",
+        "red": "bg-red-50 dark:bg-red-900",
+        "purple": "bg-purple-50 dark:bg-purple-900",
+        "success": "bg-green-50 dark:bg-green-900",
+        "yellow": "bg-yellow-50 dark:bg-yellow-900",
+        "warning": "bg-yellow-50 dark:bg-yellow-900"
       }
     },
-    "label": {
-      "base": "ml-3 flex-1 whitespace-nowrap text-left",
-      "icon": "h-6 w-6"
+    "item": {
+      "base": "flex items-center justify-center rounded-lg p-2 text-base font-normal text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700",
+      "active": "bg-gray-100 dark:bg-gray-700",
+      "collapsed": {
+        "insideCollapse": "group w-full pl-8 transition duration-75",
+        "noIcon": "font-bold"
+      },
+      "content": {
+        "base": "px-3 flex-1 whitespace-nowrap"
+      },
+      "icon": {
+        "base": "h-6 w-6 flex-shrink-0 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white",
+        "active": "text-gray-700 dark:text-gray-100"
+      },
+      "label": "",
     },
-    "list": "space-y-2 py-2"
-  },
-  "cta": {
-    "base": "mt-6 rounded-lg p-4 bg-gray-100 dark:bg-gray-700",
-    "color": {
-      "blue": "bg-cyan-50 dark:bg-cyan-900",
-      "dark": "bg-dark-50 dark:bg-dark-900",
-      "failure": "bg-red-50 dark:bg-red-900",
-      "gray": "bg-alternative-50 dark:bg-alternative-900",
-      "green": "bg-green-50 dark:bg-green-900",
-      "light": "bg-light-50 dark:bg-light-900",
-      "red": "bg-red-50 dark:bg-red-900",
-      "purple": "bg-purple-50 dark:bg-purple-900",
-      "success": "bg-green-50 dark:bg-green-900",
-      "yellow": "bg-yellow-50 dark:bg-yellow-900",
-      "warning": "bg-yellow-50 dark:bg-yellow-900"
-    }
-  },
-  "item": {
-    "base": "flex items-center justify-center rounded-lg p-2 text-base font-normal text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700",
-    "active": "bg-gray-100 dark:bg-gray-700",
-    "collapsed": {
-      "insideCollapse": "group w-full pl-8 transition duration-75",
-      "noIcon": "font-bold"
-    },
-    "content": {
-      "base": "px-3 flex-1 whitespace-nowrap"
-    },
-    "icon": {
-      "base": "h-6 w-6 flex-shrink-0 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white",
-      "active": "text-gray-700 dark:text-gray-100"
-    },
-    "label": "",
-  },
-  "items": "",
-  "itemGroup": "mt-4 space-y-2 border-t border-gray-200 pt-4 first:mt-0 first:border-t-0 first:pt-0 dark:border-gray-700",
-} 
+    "items": "",
+    "itemGroup": "mt-4 space-y-2 border-t border-gray-200 pt-4 first:mt-0 first:border-t-0 first:pt-0 dark:border-gray-700",
+  } 
 
   return (
     <main className='flex h-full '>
-      <Sidebar theme={sidebarTheme} className='h-full dark:bg-gray-800'>
+      <Sidebar theme={sidebarTheme} className={clsx(isCollapsed ? 'hidden' : 'h-full dark:bg-gray-800')} >
         <div className="h-full px-3 py-4 overflow-y-auto bg-gray-100 dark:bg-gray-800">
           <ul className="h-full space-y-2 font-medium">
             <li>
@@ -146,6 +149,11 @@ export default function SideNavPage({children}: {children: JSX.Element}) {
 
       </Sidebar>
       <div className='grow w-max h-full'>
+        <button className= {clsx(isCollapsed?"rotate-180 ":"") + "fixed flex m-2 py-2 px-3 text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"}  onClick={() => setIsCollapsed(!isCollapsed)}>
+          <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" fill="currentColor" height="20px" width="20px" version="1.1" id="Layer_1" viewBox="0 0 476.213 476.213" xmlSpace="preserve">
+            <polygon points="476.213,223.107 57.427,223.107 151.82,128.713 130.607,107.5 0,238.106 130.607,368.714 151.82,347.5   57.427,253.107 476.213,253.107 "/>
+          </svg>
+        </button>
         {children}
       </div>
     </main>

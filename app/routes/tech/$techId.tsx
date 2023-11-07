@@ -14,7 +14,7 @@ export async function loader({ params }: LoaderArgs): Promise<TechnologiesUsed |
   if(!techId) {
     return;
   }
-  const techDesc = TECHNOLOGIES_KNOWN.find( (item:TechnologiesUsed)=>item.alt.includes(techId));
+  const techDesc = TECHNOLOGIES_KNOWN.find( (item:TechnologiesUsed)=>item.alt2===techId || item.alt===techId);
   if(!techDesc) {
     throw new Response('Not found', {"status" : 404 })
   }
@@ -50,15 +50,18 @@ export default function TechPage() {
 
   return (
     <section className="h-full overflow-y-auto">
-      <Link to={Routes.techStack}>
-        <button type="button"  className="ml-1 mt-1 text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800">
-          {getArrowSVG()}
-          {lang===Language.EN?"See Technologies":"Voir les technologies"}
-        </button>
-      </Link>
+
       <h2 className="mx-auto mt-4 text-center text-2xl font-bold tracking-tight dark:text-white">
       {techDesc.alt}
       </h2>
+      <div className="width-full flex">
+        <Link to={Routes.techStack} className="mx-auto align-center">
+          <button type="button"  className="mt-1 text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800">
+            {getArrowSVG()}
+            {lang===Language.EN?"See Technologies":"Voir les technologies"}
+          </button>
+        </Link>
+      </div>
       <section className="flex justify-center flex-col mx-auto mt-8 text-center items-center">
         <div className="flex h-16 w-32">
           <div className="px-2 py-2 dark:bg-gray-50 rounded-lg mx-auto">

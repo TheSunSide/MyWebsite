@@ -14,7 +14,7 @@ export async function loader({ params }: LoaderArgs): Promise<ProjectDesc | unde
   if(!projectId) {
     return;
   }
-  const projectDesc = projectsDesc.find( (item:ProjectDesc)=>item.link.includes(projectId));
+  const projectDesc = projectsDesc.find( (item:ProjectDesc)=>item.name===projectId);
 
   if(!projectsDesc) {
     throw new Response('Not found', {"status" : 404 })
@@ -77,15 +77,17 @@ export default function ProjectPage() {
 
   return (
     <div className="h-full flex flex-col overflow-auto">
-      <Link to={Routes.project}>
-        <button type="button"  className="ml-1 mt-1 text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800">
-          {getArrowSVG()}
-          {lang === Language.EN?"See projects":"Voir les projets"}
-        </button>
-      </Link>
       <h1 className="font-bold z-10 mx-auto pt-8 text-center text-xl sm:text-2xl dark:text-white">
       {lang === Language.EN?projectDesc.name:projectDesc.FRname} - {projectDesc.year}
       </h1>
+      <div className="width-full flex mt-2">
+        <Link to={Routes.project} className="mx-auto align-center">
+          <button type="button"  className="mt-1 text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800">
+            {getArrowSVG()}
+            {lang === Language.EN?"See projects":"Voir les projets"}
+          </button>
+        </Link>
+      </div>
       <section className="flex justify-center flex-col mx-auto mt-8 text-center">
         <ul className="mx-auto mb-8 space-y-4 text-gray-500 dark:text-gray-400">
           { keyPoints.map((keyPoint, index) => 

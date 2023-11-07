@@ -229,4 +229,23 @@ export const projectsDesc: ProjectDesc[] = [
     technologies: ["TypeScript", "React", "Remix", "Tailwind", "Cloudflare"],
     link: "/website",
   },
+  {
+    name: "Machine EPM",
+    FRname: "La Machine EPM",
+    year: "2023-...",
+    keyPoints: [
+      "Developed though the winter semester of 2023 at Polytechnique Montreal",
+      "A team of developers, electrical engineers and mechanical engineers must create a machine to compete in the Engineering Games",
+      "The solution must be able to place balls in specific locations, both autonomously and manually",
+      "I was in charge of a part of the communication between the microcontroller and the computer, and of the computer's UI",
+    ],
+    FRkeyPoints: [
+      "Développé durant le trimestre d'hiver de 2023 à Polytechnique Montreal",
+      "Une équipe de développeurs, d'ingénieurs électriques et d'ingénieurs mécaniques doit créer une machine pour participer aux Jeux de Génie",
+      "La solution doit être capable de placer des balles à des endroits spécifiques, à la fois de manière autonome et manuelle",
+      "J'étais en charge d'une partie de la communication entre le microcontrôleur et l'ordinateur, et de l'interface utilisateur de l'ordinateur",
+    ],
+    technologies: ["TypeScript", "Angular", "Rust", "C++"],
+    link: "/machine-epm-2023",
+  },
 ].reverse();
