@@ -14,7 +14,7 @@ export async function loader({ params }: LoaderArgs): Promise<ProjectDesc | unde
   if(!projectId) {
     return;
   }
-  const projectDesc = projectsDesc.find( (item:ProjectDesc)=>item.name===projectId);
+  const projectDesc = projectsDesc.find( (item:ProjectDesc)=>item.link==='/'+projectId);
 
   if(!projectsDesc) {
     throw new Response('Not found', {"status" : 404 })
