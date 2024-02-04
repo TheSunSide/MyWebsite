@@ -99,24 +99,26 @@ export default function ProjectPage() {
                 </li>)
             })}
         </ul>
-        <h3 className="dark:text-white">{lang === Language.EN?"Using these technologies":"Utilise ces technologies"}</h3>
-        <ul className="mx-auto mt-4 flex flex-col flex-wrap items-center justify-center gap-4 sm:flex-row">
-          {
-            projectDesc.technologies.filter((tech)=>TECHNOLOGIES_KNOWN.find( (item)=>item.alt === tech)).map((tech) => {
-            const techKnown = TECHNOLOGIES_KNOWN.find( (item)=>item.alt === tech);
-            return (
-            <li key={techKnown!.href} className="">
-              <Link
-                to={Routes.specificTech(techKnown!.alt)}
-                className="flex h-16 w-32  grayscale transition hover:grayscale-0 focus:grayscale-0"
-              >
-                <div className="px-2 py-2 dark:bg-gray-50 rounded-lg mx-auto">
-                  <img src={techKnown!.src} alt="" className="h-full w-full" />
-                </div>
-              </Link>
-            </li>)
-          })}
-        </ul>
+        { projectDesc.technologies.length === 0 ? (<></>) :(<>
+                <h3 className="dark:text-white">{lang === Language.EN?"Using these technologies":"Utilise ces technologies"}</h3>
+                <ul className="mx-auto mt-4 flex flex-col flex-wrap items-center justify-center gap-4 sm:flex-row">
+                  {
+                    projectDesc.technologies.filter((tech)=>TECHNOLOGIES_KNOWN.find( (item)=>item.alt === tech)).map((tech) => {
+                    const techKnown = TECHNOLOGIES_KNOWN.find( (item)=>item.alt === tech);
+                    return (
+                    <li key={techKnown!.href} className="">
+                      <Link
+                        to={Routes.specificTech(techKnown!.alt)}
+                        className="flex h-16 w-32  grayscale transition hover:grayscale-0 focus:grayscale-0"
+                      >
+                        <div className="px-2 py-2 dark:bg-gray-50 rounded-lg mx-auto">
+                          <img src={techKnown!.src} alt="" className="h-full w-full" />
+                        </div>
+                      </Link>
+                    </li>)
+                  })}
+                </ul>
+                </>)}
       </section>
       {carousel}
     </div>);
