@@ -8,6 +8,7 @@ import pythonURL from "../assets/python.svg";
 //import javascriptURL from "../assets/javascript.svg";
 // import nodejsURL from "../assets/nodejs.svg";
 // import expressURL from "../assets/express.svg";
+import githubURL from "../assets/github.svg";
 import rustURL from "../assets/rust.svg";
 import postgresqlURL from "../assets/postgresql.svg";
 import mongodbURL from "../assets/mongo.svg";
@@ -30,6 +31,13 @@ export const TECHNOLOGIES_KNOWN: TechnologiesUsed[] = [
     alt: "TypeScript",
     href: "https://www.typescriptlang.org/",
     knownLevel: 5,
+    keyPoints: [],
+  },
+  {
+    src: githubURL,
+    alt: "GitHub",
+    href: "",
+    knownLevel: 4,
     keyPoints: [],
   },
   {
@@ -188,5 +196,6 @@ export const TECHNOLOGIES_KNOWN: TechnologiesUsed[] = [
     href: "https://tailwindcss.com/",
     knownLevel: 2,
     keyPoints: [],
-  },
+  }
+
 ];

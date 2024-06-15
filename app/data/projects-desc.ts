@@ -1,9 +1,12 @@
+import { l } from "vitest/dist/index-220c1d70";
 import scrabble1 from "../assets/scrabble1-0.png";
 import scrabble2 from "../assets/scrabble1-1.png";
 import scrabble3 from "../assets/scrabble1-2.png";
 import scrabble4 from "../assets/scrabble2-0.png";
 import scrabble5 from "../assets/scrabble2-1.png";
 import scrabble6 from "../assets/scrabble2-2.png";
+import lesjeux from "~/assets/les-jeux.jpg";
+import { link } from "fs";
 
 export type ProjectDesc = {
   name: string;
@@ -230,7 +233,7 @@ export const projectsDesc: ProjectDesc[] = [
     link: "/website",
   },
   {
-    name: "Machine PM",
+    name: "Machine PM - Think Outside the Box",
     FRname: "La Machine PM",
     year: "2023-...",
     keyPoints: [
@@ -258,13 +261,17 @@ export const projectsDesc: ProjectDesc[] = [
       "Part of the executive committee for Polytechnique Montreal's team for the CS Games 2024 as the Technical Vice-President",
       "I was responsible for the team's exams, the team's selection and the team's training",
       "The CS Games is a competition between universities in Canada and the United States",
-      "Contributions to come, with the link to the prepared exams (Feb 2024)",
+      "The prepared exams are available under this Github Repository: https://github.com/TheSunSide/CS-CONCEPTION-2024",
+      "The team won the 1st overall place in the competition, after 10 years",
+      "Personally won the 1st place in the Devops challenge, and the 4th place in the extreme programming challenge",
     ],
     FRkeyPoints: [
       "Partie du comité exécutif de l'équipe de Polytechnique Montreal pour les CS Games 2024 en tant que vice-président technique",
       "J'étais responsable des examens de l'équipe, de la sélection de l'équipe et de la formation de l'équipe",
       "Les CS Games sont une compétition entre les universités du Canada et des États-Unis",
-      "Contributions à venir, avec le lien vers les examens préparés (Feb 2024)",
+      "Les examens préparés sont disponibles sous ce lien Github: https://github.com/TheSunSide/CS-CONCEPTION-2024",
+      "L'équipe a remporté la 1ère place au classement général de la compétition, après 10 ans",
+      "Personnellement, j'ai remporté la 1ère place au défi Devops, et la 4ème place au défi de programmation extrême",
     ],
     technologies: [
       "C#",
@@ -306,4 +313,145 @@ export const projectsDesc: ProjectDesc[] = [
     technologies: [], // ["Excel", "Word", "Google Sheets", "Google Docs", "Google Slides"],
     link: "/cegl-poly",
   },
+  {
+    name: "Engineering Games - 2024",
+    FRname: "Jeux de Génie - 2024",
+    year: "2024",
+    keyPoints: [
+      "Part of the delegation for Polytechnique Montreal for the Engineering Games 2024",
+      "The Engineering Games is a competition between universities in Quebec",
+      "I participated in the machine project, where we had to create a machine that could place balls in specific locations, both autonomously and manually",
+      "Won 1st place overall in the Engineering Games, after 12 years of not winning",
+      "Won 2nd place in the practical computer science exam, where we had to solve various problems in a limited time",
+      "Won 1st place in the Esport competition, where we had to play a Mario Kart wii in relay and win against other teams",
+    ],
+    FRkeyPoints: [
+      "Partie de la délégation de Polytechnique Montreal pour les Jeux de Génie 2024",
+      "Les Jeux de Génie sont une compétition entre les universités du Québec",
+      "J'ai participé au projet de machine, où nous devions créer une machine qui pouvait placer des balles à des endroits spécifiques, à la fois de manière autonome et manuelle",
+      "Gagné la 1ère place au classement général des Jeux de Génie, après 12 ans sans victoire",
+      "Gagné la 2ème place à l'examen de génie informatique pratique, où nous devions résoudre divers problèmes en un temps limité",
+      "Gagné la 1ère place au concours Esport, où nous devions jouer à un Mario Kart wii en relais et gagner contre d'autres équipes",
+    ],
+    technologies: [
+      "Python",
+      "Node.js",
+      "Rust",
+      "C++",
+    ],
+    link: "/engineering-games-2024",
+    images: [lesjeux],
+  },
+  {
+    name: "Quebec Engineering Competition (QEC) - 2024",
+    FRname: "Compétition Québécoise d'Ingénierie (CQI) - 2024",
+    year: "2024",
+    keyPoints: [
+      "Part of the delegation for Polytechnique Montreal for the Quebec Engineering Competition 2024",
+      "The Quebec Engineering Competition is a competition between universities in Quebec",
+      "I participated in the Senior competition, where we had to create a machine in under 12 hours",
+      "The machine had to be built from scrach, using an ESP32, 2 motors, 2 servos and random materials, such as popsicle sticks, cardboard, and more",
+      "Won 1st place overall in the Quebec Engineering Competition, keeping a 2 years streak",
+      "Won 3rd place in the Senior competition",
+    ],
+    FRkeyPoints: [
+      "Partie de la délégation de Polytechnique Montreal pour la Compétition Québécoise d'Ingénierie 2024",
+      "La Compétition Québécoise d'Ingénierie est une compétition entre les universités du Québec",
+      "J'ai participé à la compétition Senior, où nous devions créer une machine en moins de 12 heures",
+      "La machine devait être construite à partir de zéro, en utilisant un ESP32, 2 moteurs, 2 servos et des matériaux aléatoires, tels que des bâtonnets de glace, du carton, et plus",
+      "Gagné la 1ère place au classement général de la Compétition Québécoise d'Ingénierie, gardant une série de 2 ans",
+      "Gagné la 3ème place à la compétition Senior",
+    ],
+    technologies: [
+      "C++",
+    ],
+    link: "/qec-2024",
+  },
+  {
+    name: "Vice-President of Treasury - CCIP - Poly",
+    FRname: "Vice-président à la trésorerie - CCIP - Poly",
+    year: "2024-2025",
+    keyPoints: [
+      "I was elected as the Vice-President of Treasury for the Engineering Competition Comitee of Polytechnique (CCIP Poly)",
+      "I was responsible for the budget and the finances of the CCIP",
+      "I was responsible for the financial reports and the financial planning",
+      "I was responsible for the financial management of the CCIP",
+      "I was also responsible of organizing reunions with the student association, and with the accounting of the association",
+      "I was also responsible of dealing with the executives of the comitee",
+      "I was also partly responsible of the organization of the events of the CCIP, including the CPI, which is the preliminary competition for the QEC",
+    ],
+    FRkeyPoints: [
+      "J'ai été élu vice-président à la trésorerie pour le Comité des Compétitions d'Ingénierie de Polytechnique (CCIP)",
+      "J'étais responsable du budget et des finances du CCIP",
+      "J'étais responsable des rapports financiers et de la planification financière",
+      "J'étais responsable de la gestion financière du CCIP",
+      "J'étais aussi responsable de l'organisation de réunions avec l'association étudiante, et de la comptabilité de l'association",
+      "J'étais aussi responsable de traiter avec les exécutifs du comité",
+      "J'étais aussi partiellement responsable de l'organisation des événements du CCIP, dont la CPI, qui est la compétition préliminaire pour la CQI",
+    ],
+    technologies: [], // ["Excel", "Word", "Google Sheets", "Google Docs", "Google Slides"],
+    link: "/ccip-poly",
+  },
+  {
+    name: "CS Games - 2025",
+    FRname: "CS Games - 2025",
+    year: "2025",
+    keyPoints: [
+      "Part of the executive committee for Polytechnique Montreal's team for the CS Games 2025 as the Technical Vice-President",
+      "I was responsible for the team's exams, the team's selection and the team's training",
+      "The CS Games is a competition between universities in Canada and the United States",
+      "Contributions will be made in the future, with the link to the prepared exams (Feb 2025)",
+    ],
+    FRkeyPoints: [
+      "Partie du comité exécutif de l'équipe de Polytechnique Montreal pour les CS Games 2024 en tant que vice-président technique",
+      "J'étais responsable des examens de l'équipe, de la sélection de l'équipe et de la formation de l'équipe",
+      "Les CS Games sont une compétition entre les universités du Canada et des États-Unis",
+      "Contributions à venir, avec le lien vers les examens préparés (Feb 2024)",
+    ],
+    technologies: [
+      "C#",
+      "Python",
+      "C++",
+      "Linux",
+      "GitHub",
+      "angular",
+      "C",
+      "Docker",
+      "React",
+      "Rust",
+      "PostgreSQL",
+    ],
+    link: "/csgames2025",
+  },
+  {
+    name: "Software Developpement Internship - Croesus",
+    FRname: "Stage en Développement Logiciel - Croesus",
+    year: "2024",
+    keyPoints: [
+      "I was hired as a summer software developer intern for Croesus, a company that develops software for financial advisors",
+      "I was in the Foundation team, which is responsible for the core of the software",
+      "My main responsibility was to discover and fix vulnerabilities in the various software",
+      "I did various style of updates for the front-end, the back-end, the CI/CD pipeline, the DevOps and the documentation",
+      "I had to work with the company's software architecture, and to respect the company's coding standards",
+      "I had to work with the company's Agile methodology, which was Scrum",
+      "I had to work with the company's team, which was composed of developers, testers, analysts, and managers",
+    ],
+    FRkeyPoints: [
+      "J'ai été embauché comme stagiaire en développement logiciel pour l'été chez Croesus, une entreprise qui développe des logiciels pour les conseillers financiers",
+      "J'étais dans l'équipe Foundation, qui est responsable du noyau du logiciel",
+      "Ma principale responsabilité était de découvrir et de corriger les vulnérabilités dans les divers logiciels",
+      "J'ai fait divers types de mises à jour pour le front-end, le back-end, le pipeline CI/CD, le DevOps et la documentation",
+      "J'ai dû travailler avec l'architecture logicielle de l'entreprise, et respecter les normes de codage de l'entreprise",
+      "J'ai dû travailler avec la méthodologie Agile de l'entreprise, qui était Scrum",
+      "J'ai dû travailler avec l'équipe de l'entreprise, qui était composée de développeurs, testeurs, analystes et gestionnaires",
+    ],
+    technologies: [
+      "TypeScript",
+      "Angular",
+      "Node.js",
+      "AWS",
+      "GitHub",
+    ],
+    link: "/internship-2",
+  }
 ].reverse();
