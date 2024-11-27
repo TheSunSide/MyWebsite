@@ -12,7 +12,7 @@ export default function Projects() {
         <h1 className="font-bold z-10 mx-auto pt-8 text-center text-xl sm:text-2xl dark:text-white">
           {lang==="en"?"Projects":"Projets"}
         </h1>
-        <section className="mx-auto pt-8 text-center mb-2 gap-y-4 overflow-y-auto max-h-fit grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-y-2 sm:flex-row w-fit">
+        <section className="mx-auto pt-8 text-center mb-2 gap-y-4 overflow-y-auto max-h-fit grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-y-2 sm:flex-row w-fit no-scrollbar">
           {projectsDesc.map( (item:ProjectDesc)=>{
             const projectLink = Routes.project + item.link;
             return <ProjectCard item={item} projectLink={projectLink} key={item.name} />
