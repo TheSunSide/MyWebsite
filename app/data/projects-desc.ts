@@ -7,6 +7,12 @@ import scrabble5 from "../assets/scrabble2-1.png";
 import scrabble6 from "../assets/scrabble2-2.png";
 import lesjeux from "~/assets/les-jeux.jpg";
 import p1Robot from "~/assets/inf1900-robot.jpg";
+import cqi1 from "~/assets/CQI1.jpg";
+import cs20241 from "~/assets/cs2024-1.jpg";
+import cs20242 from "~/assets/cs2024-2.jpg";
+import cs20243 from "~/assets/cs2024-3.jpg";
+import cs20231 from "~/assets/wincs-2023-1.jpg";
+import cs20232 from "~/assets/wincs-2023-2.jpg";
 import { link } from "fs";
 
 export type ProjectDesc = {
@@ -217,6 +223,7 @@ export const projectsDesc: ProjectDesc[] = [
     ],
     technologies: ["C#", "Python", "C++", "Linux"],
     link: "/csgames2023",
+    images: [cs20231, cs20232],
   },
   {
     name: "Personal website",
@@ -290,6 +297,7 @@ export const projectsDesc: ProjectDesc[] = [
       "PostgreSQL",
     ],
     link: "/csgames2024",
+    images: [cs20241, cs20242, cs20243],
   },
   {
     name: "Vice-President of Treasury - CEGL - Poly",
@@ -369,6 +377,7 @@ export const projectsDesc: ProjectDesc[] = [
       "C++",
     ],
     link: "/qec-2024",
+    images: [cqi1],
   },
   {
     name: "Vice-President of Treasury - CCIP - Poly",
