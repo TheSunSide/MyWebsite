@@ -48,7 +48,7 @@ export default function Index() {
               <li className="flex items-center space-x-3">
                 <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
                 <span>
-                {lang === Language.EN?"Co-head of delegation for Polytechnique Montreal's team for the Quebec Engineering Competition (QEC)":"Cochef de délégation pour l'équipe de Polytechnique Montréal pour la Compétition Québécoise d'Ingénierie (CQI)"}
+                {lang === Language.EN?"Co-head of delegation for Polytechnique Montreal's team for the Quebec Engineering Competition (QEC)":"Co-chef de délégation pour l'équipe de Polytechnique Montréal pour la Compétition Québécoise d'Ingénierie (CQI)"}
                 </span>
               </li>
             </ul>
