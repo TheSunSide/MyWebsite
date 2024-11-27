@@ -6,6 +6,7 @@ import scrabble4 from "../assets/scrabble2-0.png";
 import scrabble5 from "../assets/scrabble2-1.png";
 import scrabble6 from "../assets/scrabble2-2.png";
 import lesjeux from "~/assets/les-jeux.jpg";
+import p1Robot from "~/assets/inf1900-robot.jpg";
 import { link } from "fs";
 
 export type ProjectDesc = {
@@ -79,6 +80,7 @@ export const projectsDesc: ProjectDesc[] = [
     ],
     technologies: ["C++", "C", "atmel studio", "atmega324pa"],
     link: "/embedded",
+    images: [p1Robot],
   },
   {
     name: "Scrabble",
@@ -127,6 +129,7 @@ export const projectsDesc: ProjectDesc[] = [
     ],
     technologies: ["C++", "C", "atmel studio", "atmega324pa"],
     link: "/ta",
+    images:[p1Robot]
   },
   {
     name: "Summer Internship in Web Development",
